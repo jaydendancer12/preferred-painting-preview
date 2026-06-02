@@ -165,17 +165,36 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
-.timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: var(--line); }
-@media (min-width: 640px) { .timeline::before { left: 28px; } }
-.tl-item { display: flex; gap: 24px; padding-bottom: 48px; position: relative; }
-.tl-item:last-child { padding-bottom: 0; }
-.tl-dot { width: 42px; height: 42px; border-radius: 50%; background: var(--red); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800; font-size: 12px; position: relative; z-index: 1; }
-.tl-dot.milestone { background: var(--navy); }
-.tl-body { padding-top: 8px; }
-.tl-year { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
-.tl-body h3 { margin: 0 0 10px; font-size: 20px; font-weight: 700; color: var(--navy); }
-.tl-body p { margin: 0; color: var(--ink-mute); font-size: 15px; line-height: 1.7; }
+.xkr-tmln .plz-rail { position: relative; padding: 0; max-width: 940px; margin: 0 auto; }
+.xkr-tmln .plz-bg { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--line); transform: translateX(-50%); z-index: 0; }
+.xkr-tmln .plz-fill { position: absolute; left: 50%; top: 0; width: 2px; height: 0; background: var(--red); transform: translateX(-50%); z-index: 1; will-change: height; }
+.xkr-tmln .wnf-dot { position: absolute; left: 50%; width: 18px; height: 18px; border: 3px solid var(--line); border-radius: 50%; background: var(--white); transform: translate(-50%, 0); z-index: 10; transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease; }
+.xkr-tmln .wnf-dot.jtr-on { border-color: var(--red); transform: translate(-50%, 0) scale(1.15); box-shadow: 0 0 0 4px rgba(212,63,44,0.15); }
+.xkr-tmln .wnf-dot.jtr-full { background: var(--red); border-color: var(--red); box-shadow: 0 0 0 4px rgba(212,63,44,0.2); }
+.xkr-tmln .wnf-pip { position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; background: var(--white); border-radius: 50%; transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.4s ease; }
+.xkr-tmln .wnf-dot.jtr-full .wnf-pip { opacity: 1; }
+.xkr-tmln .mzx-row { position: relative; z-index: 2; display: flex; align-items: flex-start; margin-bottom: 56px; }
+.xkr-tmln .mzx-row:last-child { margin-bottom: 0; }
+.xkr-tmln .mzx-row:nth-child(odd) { flex-direction: row; }
+.xkr-tmln .mzx-row:nth-child(even) { flex-direction: row-reverse; }
+.xkr-tmln .ryq-card { width: calc(50% - 36px); background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 28px; transition: border-color 0.3s ease; }
+.xkr-tmln .mzx-row.bvk-vis .ryq-card { border-color: var(--coral); }
+.xkr-tmln .mzx-row:nth-child(odd) .ryq-card { text-align: right; }
+.xkr-tmln .mzx-row:nth-child(even) .ryq-card { text-align: left; }
+.xkr-tmln .hpn-yr { font-size: 28px; font-weight: 800; color: var(--red); margin-bottom: 2px; letter-spacing: -0.02em; line-height: 1; }
+.xkr-tmln .hpn-ttl { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 8px; }
+.xkr-tmln .hpn-h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; line-height: 1.2; }
+.xkr-tmln .hpn-txt { margin: 0; font-size: 14.5px; color: var(--ink-mute); line-height: 1.7; }
+@media (max-width: 680px) {
+  .xkr-tmln .plz-bg, .xkr-tmln .plz-fill, .xkr-tmln .wnf-dot { left: 18px; }
+  .xkr-tmln .mzx-row, .xkr-tmln .mzx-row:nth-child(odd), .xkr-tmln .mzx-row:nth-child(even) { flex-direction: row; padding-left: 48px; }
+  .xkr-tmln .ryq-card, .xkr-tmln .mzx-row:nth-child(odd) .ryq-card, .xkr-tmln .mzx-row:nth-child(even) .ryq-card { width: 100%; text-align: left; }
+}
+@media (max-width: 460px) {
+  .xkr-tmln .ryq-card { padding: 18px 20px; }
+  .xkr-tmln .hpn-yr { font-size: 24px; }
+  .xkr-tmln .mzx-row { margin-bottom: 40px; }
+}
 .acquisition-block { background: var(--navy); color: white; border-radius: 16px; padding: 40px 36px; margin: 56px 0; }
 .acquisition-block .eyebrow { color: var(--coral); }
 .acquisition-block h2 { font-size: clamp(24px,3vw,36px); margin: 12px 0 16px; color: white; font-weight: 700; line-height: 1.1; }
@@ -210,55 +229,72 @@ section.block { padding: 80px 0; }
   </section>
 
   <section class="block">
-    <div class="container" style="max-width:860px;">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot">1992</div>
-          <div class="tl-body">
-            <div class="tl-year">Founded</div>
-            <h3>Rob Cooney starts Preferred Painting</h3>
-            <p>Rob Cooney, a Denver native with a background in commercial property management, founded Preferred Painting with a single-minded focus: deliver high-quality commercial painting with the kind of communication and reliability that building owners could actually count on. The company's first clients were property managers — a market relationship that would define Preferred Painting's growth for the next three decades.</p>
+    <div class="container">
+      <div class="xkr-tmln">
+        <div class="plz-rail" id="zqTimeline">
+          <div class="plz-bg"></div>
+          <div class="plz-fill" id="zqProgress"></div>
+          <div class="wnf-dot" data-dot="0"><div class="wnf-pip"></div></div>
+          <div class="wnf-dot" data-dot="1"><div class="wnf-pip"></div></div>
+          <div class="wnf-dot" data-dot="2"><div class="wnf-pip"></div></div>
+          <div class="wnf-dot" data-dot="3"><div class="wnf-pip"></div></div>
+          <div class="wnf-dot" data-dot="4"><div class="wnf-pip"></div></div>
+          <div class="wnf-dot" data-dot="5"><div class="wnf-pip"></div></div>
+
+          <div class="mzx-row" data-tl>
+            <div class="ryq-card">
+              <div class="hpn-yr">1992</div>
+              <div class="hpn-ttl">Founded</div>
+              <h3 class="hpn-h3">Rob Cooney starts Preferred Painting</h3>
+              <p class="hpn-txt">Rob Cooney, a Denver native with a background in commercial property management, founded Preferred Painting with a single-minded focus: deliver high-quality commercial painting with the kind of communication and reliability that building owners could actually count on. The company's first clients were property managers — a market relationship that would define Preferred Painting's growth for the next three decades.</p>
+            </div>
           </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot">2000s</div>
-          <div class="tl-body">
-            <div class="tl-year">Growth years</div>
-            <h3>Building the Front Range reputation</h3>
-            <p>Through the 2000s, Preferred Painting grew steadily by doing exactly what Rob set out to do: show up on time, charge what was quoted, and leave the site clean. The team expanded its capabilities to include industrial coatings, high-rise exteriors, and specialty finishes. BOMA and IFMA memberships — and deep involvement in both organizations — cemented Preferred Painting as a trusted partner within Denver's commercial real estate community.</p>
+
+          <div class="mzx-row" data-tl>
+            <div class="ryq-card">
+              <div class="hpn-yr">2000s</div>
+              <div class="hpn-ttl">Growth years</div>
+              <h3 class="hpn-h3">Building the Front Range reputation</h3>
+              <p class="hpn-txt">Through the 2000s, Preferred Painting grew steadily by doing exactly what Rob set out to do: show up on time, charge what was quoted, and leave the site clean. The team expanded its capabilities to include industrial coatings, high-rise exteriors, and specialty finishes. BOMA and IFMA memberships — and deep involvement in both organizations — cemented Preferred Painting as a trusted partner within Denver's commercial real estate community.</p>
+            </div>
           </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot tl-dot--blue" style="background:var(--navy-soft);">2012</div>
-          <div class="tl-body">
-            <div class="tl-year">Leadership transition</div>
-            <h3>Chris Miller joins as President</h3>
-            <p>Chris Miller, a University of Iowa graduate with a background in Fortune 500 corporate sales, joined Preferred Painting as President — bringing new energy and a strategic vision for growth. Under his leadership, the company expanded its service offerings, deepened client relationships, and developed the systems and team that could handle larger, more complex projects across the entire Front Range.</p>
+
+          <div class="mzx-row" data-tl>
+            <div class="ryq-card">
+              <div class="hpn-yr">2012</div>
+              <div class="hpn-ttl">Leadership transition</div>
+              <h3 class="hpn-h3">Chris Miller joins as President</h3>
+              <p class="hpn-txt">Chris Miller, a University of Iowa graduate with a background in Fortune 500 corporate sales, joined Preferred Painting as President — bringing new energy and a strategic vision for growth. Under his leadership, the company expanded its service offerings, deepened client relationships, and developed the systems and team that could handle larger, more complex projects across the entire Front Range.</p>
+            </div>
           </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot">2020s</div>
-          <div class="tl-body">
-            <div class="tl-year">Expanded capabilities</div>
-            <h3>New services, same standards</h3>
-            <p>Responding to client demand, Preferred Painting added a range of specialty services that complemented its core painting work: BrickImaging installations, Symterra bird defense systems, lead paint remediation (EPA certified), commercial flooring, and wallcovering. Each new service line followed the same model — get properly certified, hire people who know the work, and do it right the first time.</p>
+
+          <div class="mzx-row" data-tl>
+            <div class="ryq-card">
+              <div class="hpn-yr">2020s</div>
+              <div class="hpn-ttl">Expanded capabilities</div>
+              <h3 class="hpn-h3">New services, same standards</h3>
+              <p class="hpn-txt">Responding to client demand, Preferred Painting added a range of specialty services that complemented its core painting work: BrickImaging installations, Symterra bird defense systems, lead paint remediation (EPA certified), commercial flooring, and wallcovering. Each new service line followed the same model — get properly certified, hire people who know the work, and do it right the first time.</p>
+            </div>
           </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot milestone">2024</div>
-          <div class="tl-body">
-            <div class="tl-year">Acquisition</div>
-            <h3>Preferred Painting acquires Stonetec</h3>
-            <p>In 2024, Preferred Painting acquired Stonetec — a Denver-area specialist in stained and polished concrete, marble and stone restoration, terrazzo repair, and specialty finishing services. The acquisition brought Stonetec's experienced technicians, proprietary techniques, and deep portfolio of specialty surface projects under the Preferred Painting umbrella. Together, the combined company now offers a scope of services no other commercial painting contractor in Colorado can match.</p>
+
+          <div class="mzx-row" data-tl>
+            <div class="ryq-card">
+              <div class="hpn-yr">2024</div>
+              <div class="hpn-ttl">Acquisition</div>
+              <h3 class="hpn-h3">Preferred Painting acquires Stonetec</h3>
+              <p class="hpn-txt">In 2024, Preferred Painting acquired Stonetec — a Denver-area specialist in stained and polished concrete, marble and stone restoration, terrazzo repair, and specialty finishing services. The acquisition brought Stonetec's experienced technicians, proprietary techniques, and deep portfolio of specialty surface projects under the Preferred Painting umbrella. Together, the combined company now offers a scope of services no other commercial painting contractor in Colorado can match.</p>
+            </div>
           </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot">Today</div>
-          <div class="tl-body">
-            <div class="tl-year">Present</div>
-            <h3>One company. The full building envelope.</h3>
-            <p>Today, Preferred Painting is Colorado's most comprehensive commercial surfaces contractor — handling everything from exterior painting and industrial coatings to polished concrete floors and terrazzo restoration. Thirty-plus years of relationships, 1,500+ completed jobs, and a 98% repeat client rate. The same philosophy Rob started with in 1992, applied to a much bigger canvas.</p>
+
+          <div class="mzx-row" data-tl>
+            <div class="ryq-card">
+              <div class="hpn-yr">Today</div>
+              <div class="hpn-ttl">Present</div>
+              <h3 class="hpn-h3">One company. The full building envelope.</h3>
+              <p class="hpn-txt">Today, Preferred Painting is Colorado's most comprehensive commercial surfaces contractor — handling everything from exterior painting and industrial coatings to polished concrete floors and terrazzo restoration. Thirty-plus years of relationships, 1,500+ completed jobs, and a 98% repeat client rate. The same philosophy Rob started with in 1992, applied to a much bigger canvas.</p>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -474,6 +510,72 @@ function Footer() {
 
 ReactDOM.createRoot(document.getElementById('preferred-header-root')).render(React.createElement(Header));
 ReactDOM.createRoot(document.getElementById('preferred-footer-root')).render(React.createElement(Footer));
+</script>
+<script>
+(function() {
+  var timeline = document.getElementById('zqTimeline');
+  var progressBar = document.getElementById('zqProgress');
+  if (!timeline || !progressBar) return;
+  var rows = document.querySelectorAll('.xkr-tmln .mzx-row[data-tl]');
+  var dots = document.querySelectorAll('.xkr-tmln .wnf-dot[data-dot]');
+  var lastRAF = null;
+
+  function positionDots() {
+    rows.forEach(function(row, i) {
+      var dot = dots[i];
+      if (!dot) return;
+      dot.style.top = (row.offsetTop + 28) + 'px';
+    });
+  }
+
+  function getDotCenters() {
+    var c = [];
+    dots.forEach(function(dot) { c.push(dot.offsetTop + dot.offsetHeight / 2); });
+    return c;
+  }
+
+  function checkTimeline() {
+    positionDots();
+    var vh = window.innerHeight;
+    var trigger = vh * 0.6;
+    var rect = timeline.getBoundingClientRect();
+    var tlTop = rect.top;
+    var tlH = timeline.offsetHeight;
+    var centers = getDotCenters();
+    var prog = trigger - tlTop;
+    var r = 9;
+    if (prog < 0) prog = 0;
+    if (prog > tlH) prog = tlH;
+    var clamped = prog;
+    for (var i = 0; i < centers.length; i++) {
+      if (prog >= centers[i] - r && prog <= centers[i] + r) { clamped = centers[i] - r; break; }
+    }
+    progressBar.style.height = clamped + 'px';
+    rows.forEach(function(row, i) {
+      var dot = dots[i];
+      if (!dot) return;
+      var dTop = centers[i] - r, dBot = centers[i] + r;
+      if (prog > dBot) {
+        row.classList.add('bvk-vis'); dot.classList.add('jtr-on'); dot.classList.add('jtr-full');
+      } else if (prog >= dTop) {
+        row.classList.add('bvk-vis'); dot.classList.add('jtr-on'); dot.classList.remove('jtr-full');
+      } else {
+        row.classList.remove('bvk-vis'); dot.classList.remove('jtr-on'); dot.classList.remove('jtr-full');
+      }
+    });
+  }
+
+  function onScroll() {
+    if (lastRAF) cancelAnimationFrame(lastRAF);
+    lastRAF = requestAnimationFrame(checkTimeline);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', function() { positionDots(); checkTimeline(); });
+  positionDots();
+  checkTimeline();
+})();
 </script>
 </body>
 </html>
