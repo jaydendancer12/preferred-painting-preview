@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maintenance Offerings · Preferred Painting, Inc | Denver</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+:root { --navy: #0F2B47; --navy-deep: #0A2138; --navy-soft: #1B3A5C; --red: #D43F2C; --red-dark: #B82C1B; --coral: #F2BFB4; --coral-soft: #FBE8E2; --cream: #F4EFE8; --cream-warm: #EFE7DB; --ink: #0F2B47; --ink-mute: #4F6075; --line: #E2DBCF; --white: #ffffff; --maxw: 1280px; --pad-x: clamp(20px, 4vw, 64px); --radius: 10px; --radius-lg: 16px; --shadow-sm: 0 1px 2px rgba(15,43,71,.06), 0 1px 1px rgba(15,43,71,.04); --shadow-md: 0 6px 20px rgba(15,43,71,.08), 0 1px 3px rgba(15,43,71,.06); --shadow-lg: 0 24px 60px rgba(15,43,71,.14), 0 4px 14px rgba(15,43,71,.08); --f-sans: 'Manrope', system-ui, sans-serif; --f-italic: 'Lora', Georgia, serif; }
+
+*, ::before, ::after { box-sizing: border-box; }
+html, body { margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden; }
+body { font-family: var(--f-sans); color: var(--ink); background: var(--white); line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; }
+a, a:hover, a:focus, a:active { color: inherit; text-decoration: none !important; }
+.container { max-width: var(--maxw); margin: 0 auto; padding-left: var(--pad-x); padding-right: var(--pad-x); }
+
+/* ── Header ── */
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; gap: 24px; height: 90px; }
+.brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.brand img { width: 120px; height: auto; }
+.nav { display: none; margin-left: auto; }
+.nav > ul { list-style: none; padding: 0; margin: 0; display: flex; gap: clamp(10px, 1.4vw, 26px); align-items: center; }
+.nav > ul > li { position: relative; }
+.nav > ul > li > a { display: flex; align-items: center; gap: 4px; font-size: 13.5px; font-weight: 600; color: var(--navy); padding: 10px 0; transition: color 0.15s; white-space: nowrap; letter-spacing: -0.01em; }
+.nav > ul > li > a:hover { color: var(--red); }
+.nav > ul > li > a svg { transition: transform 0.2s; flex-shrink: 0; opacity: 0.55; }
+.nav > ul > li:hover > a svg { transform: rotate(180deg); opacity: 1; }
+
+/* Dropdown */
+/* Invisible pseudo-element bridges the gap between nav link bottom and dropdown top,
+   keeping li:hover active as the mouse travels into the dropdown menu */
+.nav > ul > li::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -8px;
+  right: -8px;
+  height: 14px; /* must equal or exceed the gap below */
+  z-index: 201;
+}
+.nav-dropdown { position: absolute; top: calc(100% + 10px); left: 0; background: var(--white); border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(15,43,71,.12), 0 4px 14px rgba(15,43,71,.06); padding: 8px 0; min-width: 215px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity 0.18s, transform 0.18s; z-index: 200; list-style: none; margin: 0; }
+.nav > ul > li:hover .nav-dropdown, .nav > ul > li:focus-within .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-dropdown li a { display: block; padding: 10px 16px; font-size: 13.5px; font-weight: 600; color: var(--navy); white-space: nowrap; border-radius: 8px; transition: background 0.1s, color 0.1s; margin: 1px 6px; }
+.nav-dropdown li a:hover { color: var(--red); background: var(--cream-warm); }
+/* Wide 2-column dropdown for Markets We Serve */
+.nav-dropdown.wide { min-width: 470px; display: grid; grid-template-columns: 1fr 1fr; padding: 8px; }
+.nav-dropdown.wide li a { white-space: normal; font-size: 13px; padding: 9px 14px; }
+
+.header-cta { margin-left: 8px; flex-shrink: 0; }
+.hamburger { margin-left: auto; width: 44px; height: 44px; border: 1px solid var(--line); background: var(--white); border-radius: 8px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
+.hamburger span { display: block; width: 18px; height: 2px; background: var(--navy); border-radius: 1px; }
+
+@media (min-width: 1024px) { .nav { display: block; } .hamburger { display: none; } .header-cta { display: inline-flex !important; } }
+
+/* Ensure hidden elements vanish inside CSS grid/flex containers */
+[hidden] { display: none !important; }
+
+/* ── Drawer ── */
+.drawer { position: fixed; inset: 0; z-index: 100; background: rgba(15,43,71,0.45); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.drawer.open { opacity: 1; pointer-events: auto; }
+.drawer-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(84vw,360px); background: var(--white); transform: translateX(100%); transition: transform 0.25s; display: flex; flex-direction: column; padding: 24px; overflow-y: auto; }
+.drawer.open .drawer-panel { transform: translateX(0); }
+.drawer .close { align-self: flex-end; width: 40px; height: 40px; background: transparent; font-size: 22px; color: var(--navy); border: none; cursor: pointer; }
+.drawer nav { margin-top: 12px; display: flex; flex-direction: column; gap: 2px; }
+.drawer nav a { display: block; padding: 12px 12px; border-radius: 8px; font-size: 17px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--line); }
+.drawer nav a.drawer-sub { font-size: 14px; font-weight: 500; padding-left: 28px; color: var(--ink-mute); border-bottom-color: transparent; }
+.drawer .btn { margin-top: 20px; width: 100%; justify-content: center; }
+
+/* ── Buttons ── */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 6px; border: 1.5px solid transparent; transition: background 0.15s, color 0.15s, transform 0.1s, border-color 0.15s; white-space: nowrap; cursor: pointer; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--red); color: var(--white); }
+.btn-primary:hover { background: var(--red-dark); color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--navy); border-color: var(--navy); }
+.btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+.btn-outline-light { background: transparent; color: var(--white); border-color: var(--white); }
+.btn-outline-light:hover { background: var(--white); color: var(--navy); }
+
+/* ── Section basics ── */
+section.block { padding: 80px 0; }
+@media (max-width: 640px) { section.block { padding: 56px 0; } }
+.section-head { text-align: center; margin-bottom: 48px; }
+.section-head .eyebrow { display: inline-block; text-transform: uppercase; letter-spacing: 0.18em; font-size: 12px; font-weight: 700; color: var(--red); margin-bottom: 14px; }
+.section-head h2 { font-size: clamp(28px,3.4vw,42px); margin: 0 0 14px; color: var(--navy); letter-spacing: -0.015em; font-weight: 700; text-wrap: balance; }
+.section-head p { margin: 0 auto; max-width: 60ch; color: var(--ink-mute); font-size: 16px; text-wrap: pretty; }
+.eyebrow { display: inline-block; text-transform: uppercase; letter-spacing: 0.18em; font-size: 12px; font-weight: 700; color: var(--red); margin-bottom: 14px; }
+
+/* ── Page hero ── */
+.page-hero { background: var(--navy); color: var(--white); padding: 64px 0 56px; position: relative; overflow: hidden; }
+.page-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1100px 500px at 100% 0%, rgba(255,255,255,0.06), transparent 60%); pointer-events: none; }
+.page-hero .crumbs { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; font-weight: 600; }
+.page-hero .crumbs a { color: var(--coral); transition: color 0.15s; }
+.page-hero .crumbs a:hover { color: var(--white); }
+.page-hero .crumbs .sep { opacity: 0.55; margin: 0 8px; }
+.page-hero h1 { font-size: clamp(32px,4.4vw,52px); line-height: 1.05; letter-spacing: -0.015em; font-weight: 700; margin: 0 0 16px; text-wrap: balance; }
+.page-hero h1 em { font-family: var(--f-italic); font-style: italic; font-weight: 500; color: var(--coral); }
+.page-hero p.lede { font-size: clamp(16px,1.3vw,18px); color: rgba(255,255,255,0.85); max-width: 60ch; margin: 0; line-height: 1.55; }
+.page-hero-grid { display: grid; gap: 36px; align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 960px) { .page-hero-grid { grid-template-columns: 1.2fr 1fr; gap: 56px; } }
+
+/* ── About grid ── */
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+@media (min-width: 960px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+.about-copy h2 { font-size: clamp(28px,3.2vw,40px); margin: 0 0 18px; color: var(--navy); letter-spacing: -0.015em; line-height: 1.1; font-weight: 700; }
+.about-copy h2 em { font-family: var(--f-italic); font-style: italic; color: var(--red); font-weight: 500; }
+.about-copy p { color: var(--ink-mute); font-size: 16px; margin: 0 0 16px; line-height: 1.7; }
+.about-photos { border-radius: 14px; overflow: hidden; max-width: 600px; aspect-ratio: 4/3; box-shadow: var(--shadow-md); }
+.about-photos img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Stats ── */
+.stats { margin: 28px 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.stat { background: var(--white); border-radius: 10px; padding: 18px 16px; border-top: 3px solid var(--red); }
+.stat .n { font-size: clamp(24px,2.6vw,32px); font-weight: 800; color: var(--navy); line-height: 1; }
+.stat .l { font-size: 12px; color: var(--ink-mute); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+/* ── Form ── */
+.form-card { background: var(--white); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-md); border: 1px solid var(--line); }
+.form-card h3 { margin: 0 0 6px; font-size: 22px; color: var(--navy); font-weight: 700; }
+.form-card .sub { color: var(--ink-mute); font-size: 14px; margin-bottom: 22px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.field label { font-size: 13px; font-weight: 600; color: var(--navy); }
+.field input, .field select, .field textarea { font: inherit; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--white); transition: border-color 0.15s, box-shadow 0.15s; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--navy); box-shadow: rgba(15,43,71,0.12) 0 0 0 3px; }
+.field textarea { resize: vertical; min-height: 96px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } }
+.form-card .btn { width: 100%; margin-top: 6px; }
+.form-success { background: rgb(231,245,236); border: 1px solid rgb(183,220,194); color: rgb(28,91,48); border-radius: 10px; padding: 18px 20px; font-size: 14px; line-height: 1.5; }
+.form-success strong { display: block; margin-bottom: 4px; font-size: 15px; }
+.error { color: var(--red); font-size: 12px; margin-top: 2px; }
+
+/* ── Contact list ── */
+.contact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.contact-list li { display: flex; align-items: flex-start; gap: 14px; color: var(--navy); font-size: 15px; }
+.contact-list svg { width: 20px; height: 20px; color: var(--red); flex-shrink: 0; margin-top: 2px; }
+.contact-list strong { display: block; font-weight: 700; margin-bottom: 2px; }
+.contact-list a:hover { color: var(--red); }
+
+/* ── Reviews ── */
+.reviews-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .reviews-grid { grid-template-columns: repeat(3,1fr); gap: 22px; } }
+.review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 28px 26px; display: flex; flex-direction: column; gap: 16px; }
+.stars { display: flex; gap: 3px; color: rgb(242,195,109); }
+.stars svg { width: 16px; height: 16px; }
+.review-quote { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.92); flex: 1; text-wrap: pretty; }
+.review-meta { display: flex; align-items: center; gap: 12px; }
+.review-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--coral); color: var(--navy); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+.review-author { font-size: 14px; font-weight: 700; }
+.review-role { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+/* ── Footer ── */
+.site-footer { background: var(--navy-deep); color: rgba(255,255,255,0.75); padding: 56px 0 24px; font-size: 14px; }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; } }
+.footer h5 { color: white; margin: 0 0 14px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; }
+.footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.footer a { text-decoration: none; }
+.footer a:hover { color: white; }
+.footer-brand p { margin: 14px 0 0; line-height: 1.6; max-width: 36ch; }
+.footer-brand img { background: white; padding: 8px 14px; border-radius: 8px; width: 130px; height: auto; }
+.footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
+</style>
+  <style>
+.maint-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .maint-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .maint-grid { grid-template-columns: repeat(3,1fr); } }
+.maint-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; }
+.maint-card .mi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.maint-card h3 { margin: 0; font-size: 17px; font-weight: 700; color: var(--navy); }
+.maint-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
+.tier-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .tier-grid { grid-template-columns: repeat(3,1fr); } }
+.tier-card { border: 2px solid var(--line); border-radius: 16px; padding: 32px 28px; display: flex; flex-direction: column; }
+.tier-card.featured { border-color: var(--red); }
+.tier-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: white; background: var(--red); border-radius: 4px; padding: 4px 10px; margin-bottom: 16px; align-self: flex-start; }
+.tier-name { font-size: 22px; font-weight: 800; color: var(--navy); margin: 0 0 8px; }
+.tier-desc { color: var(--ink-mute); font-size: 14.5px; line-height: 1.6; margin: 0 0 20px; }
+.tier-includes { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.tier-includes li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink); }
+.tier-includes li::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: var(--coral-soft); flex-shrink: 0; display: flex; align-items: center; justify-content: center; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23D43F2C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); background-size: 11px; background-repeat: no-repeat; background-position: center; margin-top: 1px; }
+.roi-block { background: var(--cream); border-radius: 16px; padding: 40px 36px; }
+.roi-block h3 { margin: 0 0 16px; font-size: clamp(22px,2.4vw,28px); color: var(--navy); font-weight: 700; }
+.roi-block p { color: var(--ink-mute); font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
+.roi-stats { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+@media (min-width: 640px) { .roi-stats { grid-template-columns: repeat(3,1fr); } }
+.roi-stat { background: var(--white); border-radius: 10px; padding: 20px; border-top: 3px solid var(--red); }
+.roi-stat .n { font-size: 28px; font-weight: 800; color: var(--navy); }
+.roi-stat .l { font-size: 13px; color: var(--ink-mute); margin-top: 4px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+
+<div id="preferred-header-root"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Home</a><span class="sep">·</span><span>Maintenance Offerings</span></div>
+      <div class="page-hero-grid">
+        <div>
+          <h1>Protect your facility investment with a <em>maintenance program.</em></h1>
+          <p class="lede">A Preferred Painting maintenance contract is the single best investment you can make in your building's long-term appearance — and the most cost-effective way to avoid expensive emergency repairs. Programs are customized to your building's size, traffic, and budget.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
+            <a href="contact.html" class="btn btn-primary">Get a custom quote</a>
+            <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>
+          </div>
+        </div>
+        <div class="about-photos" style="aspect-ratio:16/9;">
+          <img src="https://preferredp1dev.wpenginepowered.com/wp-content/uploads/2026/05/ext-3.jpeg" alt="Preferred Painting maintenance project">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--cream);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What's included</span>
+        <h2>Everything your building needs to stay sharp</h2>
+        <p>Maintenance programs are fully customizable — pick the services that make sense for your facility and budget. Every program includes a dedicated point of contact and documented service history.</p>
+      </div>
+      <div class="maint-grid">
+        <div class="maint-card">
+          <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+          <h3>Scheduled Walkthroughs</h3>
+          <p>Quarterly (or more frequent) site visits where our team documents every surface condition, identifies developing issues, and provides a written punch list with priority ratings. Catch problems before they become expensive.</p>
+        </div>
+        <div class="maint-card">
+          <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4l6 6-9 9H5v-6z"></path></svg></div>
+          <h3>Annual Touch-Up Programs</h3>
+          <p>Scheduled repainting of high-wear areas: corridors, stairwells, elevator lobbies, restrooms, and common areas. We maintain paint-color records so every touch-up is an exact match — no visible patches.</p>
+        </div>
+        <div class="maint-card">
+          <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+          <h3>Emergency Response Coverage</h3>
+          <p>Priority scheduling for urgent needs: water damage touch-ups, graffiti remediation, vandalism repairs, and tenant turnover painting. Contract clients jump the queue — typically on site within 24 to 48 hours.</p>
+        </div>
+        <div class="maint-card">
+          <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+          <h3>Multi-Year Pricing Lock</h3>
+          <p>Lock in today's labor and material rates for up to three years. For clients managing large portfolios or operating under tight budgets, predictable costs are worth as much as the work itself.</p>
+        </div>
+        <div class="maint-card">
+          <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+          <h3>Documented Service History</h3>
+          <p>Every visit, every repair, every product used — documented in writing and provided to you. When ownership changes, you hand over a complete maintenance record. When auditors come, you have proof of proper upkeep.</p>
+        </div>
+        <div class="maint-card">
+          <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+          <h3>Tenant Turnover Painting</h3>
+          <p>Fast-turnaround repainting between tenants — prioritizing speed without sacrificing quality. We maintain your building's standard finish specifications so every new tenant walks into a space that looks brand new.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Program tiers</span>
+        <h2>Choose your maintenance program</h2>
+        <p>All programs are fully customizable. These tiers are a starting point — most clients end up with a hybrid that matches their specific building and budget.</p>
+      </div>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <div class="tier-name">Essential</div>
+          <div class="tier-desc">For smaller buildings or those new to planned maintenance. Establishes a baseline and catches the most critical issues before they compound.</div>
+          <ul class="tier-includes">
+            <li>Two scheduled walkthroughs per year</li>
+            <li>Annual high-traffic area touch-ups</li>
+            <li>48-hour emergency response</li>
+            <li>Written condition reports</li>
+            <li>Paint color record keeping</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline-dark">Get a quote</a>
+        </div>
+        <div class="tier-card featured">
+          <span class="tier-badge">Most popular</span>
+          <div class="tier-name">Standard</div>
+          <div class="tier-desc">The most common choice for mid-size office, retail, and multi-family buildings. Balances preventive maintenance with budget predictability.</div>
+          <ul class="tier-includes">
+            <li>Quarterly walkthroughs</li>
+            <li>Semi-annual touch-up program</li>
+            <li>24-hour emergency response</li>
+            <li>Tenant turnover painting (priority scheduling)</li>
+            <li>Multi-year pricing lock available</li>
+            <li>Documented service history</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary">Get a quote</a>
+        </div>
+        <div class="tier-card">
+          <div class="tier-name">Comprehensive</div>
+          <div class="tier-desc">For large or high-traffic facilities — Class A office buildings, major retail centers, healthcare facilities, and large multi-family portfolios.</div>
+          <ul class="tier-includes">
+            <li>Monthly walkthroughs</li>
+            <li>Continuous touch-up program</li>
+            <li>Same-day emergency response</li>
+            <li>Floor, concrete, and stone maintenance included</li>
+            <li>Multi-year pricing lock (3 years)</li>
+            <li>Dedicated account manager</li>
+            <li>Annual portfolio review meeting</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline-dark">Get a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--cream);">
+    <div class="container">
+      <div class="roi-block">
+        <h3>The ROI on planned maintenance</h3>
+        <p>The math on preventive maintenance is straightforward: catching a surface problem early — a small crack, peeling primer, or water intrusion — costs a fraction of addressing it after it has spread. Buildings on planned maintenance programs also hold their value better, command higher rents, and have lower tenant turnover.</p>
+        <p>Here's what we see consistently across our maintenance clients:</p>
+        <div class="roi-stats">
+          <div class="roi-stat"><div class="n">40%</div><div class="l">Average reduction in emergency repair costs vs. reactive-only clients</div></div>
+          <div class="roi-stat"><div class="n">3–5×</div><div class="l">ROI on maintenance investment vs. deferred-maintenance repaints</div></div>
+          <div class="roi-stat"><div class="n">25%</div><div class="l">Typical extension of coating lifespan with regular scheduled touch-ups</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--navy);color:white;">
+    <div class="container">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px;">
+        <div style="max-width:56ch;">
+          <h2 style="font-size:clamp(24px,3vw,36px);margin:0 0 14px;color:white;font-weight:700;letter-spacing:-0.015em;">Ready to get your building on a program?</h2>
+          <p style="color:rgba(255,255,255,0.8);font-size:16px;line-height:1.6;margin:0;">Tell us about your facility — size, type, current condition, and what you're trying to accomplish. We'll build a custom program that fits your building and your budget.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;">
+          <a href="contact.html" class="btn btn-primary">Request a custom program quote</a>
+          <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="preferred-footer-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script>
+var LOGO = 'https://preferredp1dev.wpenginepowered.com/wp-content/uploads/2026/05/preferred-logo.webp';
+
+var NAV = [
+  { label: 'Home', href: 'index.html' },
+  {
+    label: 'About Us',
+    href: 'about.html',
+    children: [
+      { label: 'Our Story', href: 'our-story.html' },
+      { label: 'Our Team',  href: 'team.html' }
+    ]
+  },
+  { label: 'Services', href: 'services.html' },
+  {
+    label: 'Markets We Serve',
+    href: 'markets.html',
+    wide: true,
+    children: [
+      { label: 'Office',                               href: 'market-office.html' },
+      { label: 'Retail',                               href: 'market-retail.html' },
+      { label: 'Industrial',                           href: 'market-industrial.html' },
+      { label: 'Healthcare',                           href: 'market-healthcare.html' },
+      { label: 'Education',                            href: 'market-education.html' },
+      { label: 'Multi-Family',                         href: 'market-multi-family.html' },
+      { label: 'Senior Living',                        href: 'market-senior-living.html' },
+      { label: 'Government Facilities / Public Sector', href: 'market-government.html' },
+      { label: 'Sports Facilities',                    href: 'market-sports.html' },
+      { label: 'Hospitality',                          href: 'market-hospitality.html' },
+      { label: 'Golf Course Facilities',               href: 'market-golf.html' }
+    ]
+  },
+  { label: 'Maintenance Offerings', href: 'maintenance.html' },
+  {
+    label: 'Resources',
+    href: 'resources.html',
+    children: [
+      { label: 'Memberships', href: 'memberships.html' },
+      { label: 'Blog',        href: 'blog.html' },
+      { label: 'LinkedIn',    href: 'https://www.linkedin.com/company/preferred-painting-inc/', external: true },
+      { label: 'Contact Us',  href: 'contact.html' }
+    ]
+  }
+];
+
+var caretSvg = React.createElement('svg', {
+  viewBox:'0 0 24 24', width:11, height:11,
+  fill:'none', stroke:'currentColor', strokeWidth:'2.5',
+  strokeLinecap:'round', strokeLinejoin:'round', style:{flexShrink:0}
+}, React.createElement('polyline', {points:'6 9 12 15 18 9'}));
+
+function Header() {
+  var _s = React.useState(false);
+  var drawerOpen = _s[0], setDrawerOpen = _s[1];
+  var goQuote = function() { window.location.href = 'contact.html'; };
+
+  function renderDesktopItem(item) {
+    if (item.children && item.children.length) {
+      return React.createElement('li', {key:item.label},
+        React.createElement('a', {href:item.href}, item.label, caretSvg),
+        React.createElement('ul', {className:'nav-dropdown'+(item.wide?' wide':'')},
+          item.children.map(function(c) {
+            return React.createElement('li', {key:c.label},
+              React.createElement('a', {
+                href:   c.href,
+                target: c.external?'_blank':undefined,
+                rel:    c.external?'noopener noreferrer':undefined
+              }, c.label));
+          })));
+    }
+    return React.createElement('li', {key:item.label},
+      React.createElement('a', {href:item.href}, item.label));
+  }
+
+  var drawerItems = [];
+  NAV.forEach(function(item) {
+    drawerItems.push({label:item.label, href:item.href, sub:false});
+    if (item.children) {
+      item.children.forEach(function(c) {
+        drawerItems.push({label:c.label, href:c.href, sub:true, external:c.external});
+      });
+    }
+  });
+
+  return React.createElement(React.Fragment, null,
+    React.createElement('header', {className:'site-header'},
+      React.createElement('div', {className:'container header-inner'},
+        React.createElement('a', {href:'index.html', className:'brand'},
+          React.createElement('img', {src:LOGO, alt:'Preferred Painting, Inc.'})),
+        React.createElement('nav', {className:'nav', 'aria-label':'Main navigation'},
+          React.createElement('ul', null, NAV.map(renderDesktopItem))),
+        React.createElement('button', {className:'btn btn-primary header-cta', onClick:goQuote}, 'Request a Quote'),
+        React.createElement('button', {
+          className:'hamburger',
+          onClick:function(){setDrawerOpen(true);},
+          'aria-label':'Open menu'
+        }, React.createElement('span'), React.createElement('span'), React.createElement('span')))),
+
+    React.createElement('div', {
+      className:'drawer '+(drawerOpen?'open':''),
+      onClick:function(){setDrawerOpen(false);}
+    },
+      React.createElement('div', {className:'drawer-panel', onClick:function(e){e.stopPropagation();}},
+        React.createElement('button', {className:'close', onClick:function(){setDrawerOpen(false);}, 'aria-label':'Close menu'}, '✕'),
+        React.createElement('nav', null,
+          drawerItems.map(function(item, i) {
+            return React.createElement('a', {
+              key:i, href:item.href,
+              target:item.external?'_blank':undefined,
+              rel:item.external?'noopener noreferrer':undefined,
+              className:item.sub?'drawer-sub':'',
+              onClick:function(){setDrawerOpen(false);}
+            }, item.label);
+          })),
+        React.createElement('button', {className:'btn btn-primary', onClick:function(){setDrawerOpen(false);goQuote();}}, 'Request a Quote'),
+        React.createElement('div', {style:{marginTop:24,fontSize:13,color:'var(--ink-mute)',display:'flex',flexDirection:'column',gap:10}},
+          React.createElement('a', {href:'tel:3036950147', style:{display:'flex',gap:8,alignItems:'center',color:'var(--navy)'}},
+            React.createElement('svg', {viewBox:'0 0 24 24',width:16,height:16,fill:'none',stroke:'currentColor',strokeWidth:'1.8'},
+              React.createElement('path', {d:'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'})),
+            React.createElement('span', null, '(303) 695-0147')),
+          React.createElement('a', {href:'mailto:info@preferredpainting.com', style:{display:'flex',gap:8,alignItems:'center',color:'var(--navy)'}},
+            React.createElement('svg', {viewBox:'0 0 24 24',width:16,height:16,fill:'none',stroke:'currentColor',strokeWidth:'1.8'},
+              React.createElement('path', {d:'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'}),
+              React.createElement('polyline', {points:'22 6 12 13 2 6'})),
+            React.createElement('span', null, 'info@preferredpainting.com'))))));
+}
+
+function Footer() {
+  return React.createElement('footer', {className:'site-footer footer'},
+    React.createElement('div', {className:'container footer-grid'},
+      React.createElement('div', {className:'footer-brand'},
+        React.createElement('img', {src:LOGO, alt:'Preferred Painting'}),
+        React.createElement('p', null, "Denver's commercial painting and surfaces contractor of choice. Family owned, licensed, insured, and bonded since 1992.")),
+      React.createElement('div', null,
+        React.createElement('h5', null, 'Services'),
+        React.createElement('ul', null,
+          React.createElement('li', null, React.createElement('a', {href:'services.html'}, 'All Services')),
+          React.createElement('li', null, React.createElement('a', {href:'maintenance.html'}, 'Maintenance Offerings')),
+          React.createElement('li', null, React.createElement('a', {href:'services.html#flooring'}, 'Commercial Flooring')),
+          React.createElement('li', null, React.createElement('a', {href:'services.html#concrete'}, 'Stained & Polished Concrete')),
+          React.createElement('li', null, React.createElement('a', {href:'services.html#highrise'}, 'High-Rise Exteriors')))),
+      React.createElement('div', null,
+        React.createElement('h5', null, 'Company'),
+        React.createElement('ul', null,
+          React.createElement('li', null, React.createElement('a', {href:'about.html'}, 'About Us')),
+          React.createElement('li', null, React.createElement('a', {href:'our-story.html'}, 'Our Story')),
+          React.createElement('li', null, React.createElement('a', {href:'team.html'}, 'Our Team')),
+          React.createElement('li', null, React.createElement('a', {href:'markets.html'}, 'Markets We Serve')),
+          React.createElement('li', null, React.createElement('a', {href:'resources.html'}, 'Resources')))),
+      React.createElement('div', null,
+        React.createElement('h5', null, 'Contact'),
+        React.createElement('ul', null,
+          React.createElement('li', null, React.createElement('a', {href:'tel:3036950147'}, '(303) 695-0147')),
+          React.createElement('li', null, React.createElement('a', {href:'mailto:info@preferredpainting.com'}, 'info@preferredpainting.com')),
+          React.createElement('li', null, '1980 S. Quebec St, Suite 100', React.createElement('br'), 'Denver, CO 80231'),
+          React.createElement('li', null, 'Mon–Fri 7am–6pm')))),
+    React.createElement('div', {className:'container footer-bottom'},
+      React.createElement('div', null, '© 1992–2026 Preferred Painting, Inc. All rights reserved.'),
+      React.createElement('div', null, 'Licensed · Bonded · Insured')));
+}
+
+ReactDOM.createRoot(document.getElementById('preferred-header-root')).render(React.createElement(Header));
+ReactDOM.createRoot(document.getElementById('preferred-footer-root')).render(React.createElement(Footer));
+</script>
+</body>
+</html>
