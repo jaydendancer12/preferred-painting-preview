@@ -164,20 +164,36 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.season-section { background: var(--cream); padding: 64px 0; }
+.season-track { display: flex; align-items: stretch; gap: 0; flex-wrap: nowrap; overflow: hidden; border-radius: 14px; border: 1px solid var(--line); }
+@media (max-width: 640px) { .season-track { flex-direction: column; } }
+.season-step { flex: 1; padding: 32px 28px; background: var(--white); position: relative; }
+.season-step::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--red); font-weight: 800; z-index: 2; background: var(--white); padding: 4px 0; }
+.season-step:last-child::after { display: none; }
+@media (max-width: 640px) { .season-step::after { content: '↓'; right: auto; left: 50%; top: auto; bottom: -14px; transform: translateX(-50%); } }
+.season-step.active { background: var(--navy); color: white; }
+.season-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red); margin-bottom: 8px; }
+.season-step.active .season-label { color: var(--coral); }
+.season-step h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin: 0 0 8px; }
+.season-step.active h3 { color: white; }
+.season-step p { font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; margin: 0; }
+.season-step.active p { color: rgba(255,255,255,0.72); }
+.golf-feat-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 640px) { .golf-feat-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .golf-feat-grid { grid-template-columns: repeat(3,1fr); } }
+.golf-feat { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 26px 22px; }
+.golf-feat .fi { width: 42px; height: 42px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.golf-feat h3 { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.golf-feat p { margin: 0; color: var(--ink-mute); font-size: 13.5px; line-height: 1.65; }
+.prop-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .prop-grid { grid-template-columns: repeat(3,1fr); } }
+.prop-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.prop-card-head { background: var(--navy); color: white; padding: 16px 20px; }
+.prop-card-head h3 { margin: 0; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+.prop-card-body { padding: 8px 0; }
+.prop-card-item { padding: 12px 20px; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-mute); }
+.prop-card-item:last-child { border-bottom: none; }
+.prop-card-item strong { display: block; font-size: 13.5px; color: var(--navy); margin-bottom: 2px; }
   </style>
 </head>
 <body>
@@ -189,7 +205,7 @@ section.block { padding: 80px 0; }
       <div class="page-hero-grid">
         <div>
           <h1>Golf course facility painting — <em>club standards, Colorado conditions.</em></h1>
-          <p class="lede">Clubhouses, pro shops, maintenance buildings, and cart storage facilities. Exterior coatings that hold up to Colorado's intense UV and weather extremes, interior refreshes that meet your membership's expectations — coordinated around your tournament calendar and peak season.</p>
+          <p class="lede">Clubhouses, pro shops, maintenance buildings, and cart storage. Exterior coatings that hold up to Colorado's intense UV and weather extremes, interior refreshes that meet your membership's expectations — coordinated around your tournament calendar and peak season.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
             <a href="contact.html" class="btn btn-primary">Request a Quote</a>
             <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>
@@ -200,30 +216,87 @@ section.block { padding: 80px 0; }
     </div>
   </section>
 
-  <section class="block" style="background:var(--cream);">
+  <section class="season-section">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for golf courses</span><h2>Seasonal expertise. UV-rated systems. Member-worthy finishes.</h2><p>Golf course facilities face unique challenges: extreme UV exposure, freeze-thaw cycles, and members who notice everything. We address all three with coating systems rated for Colorado conditions and scheduling that works around your season.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><h3>Off-season &amp; winter scheduling</h3><p>Most golf course painting happens during fall and winter closure. We plan well in advance, mobilize when the season ends, and guarantee completion before reopening day — not after.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3>UV-resistant exterior coatings</h3><p>Colorado's altitude means significantly higher UV exposure than sea-level climates. We specify elastomeric and UV-stable exterior coating systems that resist fading, chalking, and premature failure in Colorado conditions.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg></div><h3>Member-grade interior finishes</h3><p>Club members expect a premium environment. Clubhouse dining rooms, locker rooms, bar areas, and pro shops — finished to a level that meets your membership's expectations and your brand standards.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></div><h3>Wood refinishing expertise</h3><p>Clubhouses are full of wood — beams, paneling, trim, locker room doors, and bar millwork. We strip, sand, stain, and seal to restore original character without costly replacement.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l5 3V10l5 3V6l6 4v10"></path></svg></div><h3>Maintenance facility coatings</h3><p>Maintenance buildings and cart storage require industrial-grade floor and wall coatings that can handle equipment, oils, and cleaning chemicals. We handle these separately from the clubhouse scope.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><h3>Fixed-price quotes</h3><p>Golf club capital budgets are set months in advance. Our fixed-price approach gives your board and finance committee the certainty they need to approve the project.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Seasonal scheduling</span>
+        <h2>Plan now. Paint in the off-season. Open ready.</h2>
+        <p>Most golf course work happens in a narrow off-season window. We scope projects months before closure so we can mobilize immediately when the season ends.</p>
+      </div>
+      <div class="season-track">
+        <div class="season-step">
+          <div class="season-label">Spring – Summer</div>
+          <h3>Scope &amp; plan</h3>
+          <p>We walk your property, document every surface, and build a complete project plan — so everything is approved and ready to go before season end.</p>
+        </div>
+        <div class="season-step">
+          <div class="season-label">Late Summer – Fall</div>
+          <h3>Mobilize</h3>
+          <p>The moment play slows, our crew is on-site. Exterior prep, interior staging, and product delivery are all coordinated in advance for a fast start.</p>
+        </div>
+        <div class="season-step active">
+          <div class="season-label">Fall – Winter</div>
+          <h3>Paint &amp; restore</h3>
+          <p>Clubhouse, pro shop, maintenance buildings — all surfaces refreshed while the property is at its quietest. No member disruption, no event conflicts.</p>
+        </div>
+        <div class="season-step">
+          <div class="season-label">Early Spring</div>
+          <h3>Ready to open</h3>
+          <p>We complete all work before opening day — not after. Your members arrive to a property that looks better than when they left, guaranteed.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why Preferred Painting for golf courses</span>
+        <h2>Seasonal expertise. UV-rated systems. Member-worthy finishes.</h2>
+        <p>Golf course facilities face unique challenges: extreme UV, freeze-thaw cycles, and members who notice everything. We address all three with the right systems and the right scheduling.</p>
+      </div>
+      <div class="golf-feat-grid">
+        <div class="golf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>Off-season &amp; winter scheduling</h3><p>We plan and mobilize when the season ends, guaranteeing completion before reopening — not after your first member arrives.</p></div>
+        <div class="golf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>UV-resistant exterior coatings</h3><p>Colorado's altitude means significantly higher UV exposure than sea level. We specify elastomeric and UV-stable systems that resist fading, chalking, and premature failure.</p></div>
+        <div class="golf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><h3>Member-grade interior finishes</h3><p>Club members expect a premium environment. Dining rooms, locker rooms, bar areas, and pro shops — finished to a level that meets your membership's expectations.</p></div>
+        <div class="golf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div><h3>Wood refinishing expertise</h3><p>Clubhouses are full of wood — beams, paneling, trim, locker room doors, and bar millwork. We strip, sand, stain, and seal to restore original character without costly replacement.</p></div>
+        <div class="golf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l5 3V10l5 3V6l6 4v10"/></svg></div><h3>Maintenance facility coatings</h3><p>Maintenance buildings and cart storage require industrial-grade floor and wall coatings that handle equipment, oils, and cleaning chemicals — scoped separately from the clubhouse.</p></div>
+        <div class="golf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Fixed-price quotes</h3><p>Golf club capital budgets are set months in advance. Our fixed-price approach gives your board and finance committee the certainty they need to approve the project.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--cream);">
+    <div class="container">
       <div class="section-head"><span class="eyebrow">Services for golf course facilities</span><h2>Every building on the property</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Commercial Exterior Painting</h3><p>Clubhouse, pro shop, shelters, and outbuildings — UV-rated, elastomeric coating systems that hold up to Colorado weather.</p></div>
-        <div class="svc-card"><h3>Commercial Interior Painting</h3><p>Dining rooms, bars, locker rooms, meeting rooms, and administrative spaces — premium finishes that meet member expectations.</p></div>
-        <div class="svc-card"><h3>Wood Refinishing</h3><p>Beams, paneling, millwork, locker room wood, and bar surfaces — stripped, sanded, stained, and sealed to restore original appearance.</p></div>
-        <div class="svc-card"><h3>Stained &amp; Polished Concrete</h3><p>Polished concrete for bag rooms, locker room entries, and modern clubhouse common areas — elegant and easy to maintain.</p></div>
-        <div class="svc-card"><h3>Industrial Floor Coatings</h3><p>Epoxy and polyurethane floor systems for maintenance buildings and cart storage — durable, oil-resistant, and easy to clean.</p></div>
-        <div class="svc-card"><h3>Maintenance Contracts</h3><p>Annual touch-up programs for clubhouse high-wear areas, exterior surfaces, and maintenance buildings — keeping the entire property looking well-maintained year over year.</p></div>
+      <div class="prop-grid">
+        <div class="prop-card">
+          <div class="prop-card-head"><h3>Clubhouse</h3></div>
+          <div class="prop-card-body">
+            <div class="prop-card-item"><strong>Exterior painting</strong>UV-rated, elastomeric systems for Colorado weather</div>
+            <div class="prop-card-item"><strong>Interior painting</strong>Dining rooms, bars, locker rooms, and meeting spaces</div>
+            <div class="prop-card-item"><strong>Wood refinishing</strong>Beams, paneling, millwork, and bar surfaces</div>
+            <div class="prop-card-item"><strong>Wallcovering</strong>Commercial vinyl for dining rooms and lounges</div>
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-card-head"><h3>Pro Shop &amp; Common Areas</h3></div>
+          <div class="prop-card-body">
+            <div class="prop-card-item"><strong>Interior painting</strong>Retail areas, bag rooms, and restrooms</div>
+            <div class="prop-card-item"><strong>Polished concrete</strong>Premium floor finish for bag rooms and entries</div>
+            <div class="prop-card-item"><strong>Exterior painting</strong>Canopies, staging areas, and outbuildings</div>
+            <div class="prop-card-item"><strong>Ceiling tile</strong>Replacement of stained or damaged tiles</div>
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-card-head"><h3>Maintenance &amp; Storage</h3></div>
+          <div class="prop-card-body">
+            <div class="prop-card-item"><strong>Industrial floor coatings</strong>Epoxy systems for cart storage and equipment bays</div>
+            <div class="prop-card-item"><strong>Wall protection</strong>FRP panels for impact-prone maintenance areas</div>
+            <div class="prop-card-item"><strong>Exterior painting</strong>Metal and masonry building exteriors</div>
+            <div class="prop-card-item"><strong>Maintenance contracts</strong>Annual upkeep across the entire property</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

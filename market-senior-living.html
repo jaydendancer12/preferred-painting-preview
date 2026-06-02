@@ -164,20 +164,25 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.commitments { background: var(--cream); padding: 80px 0; }
+.commit-list { display: flex; flex-direction: column; gap: 0; max-width: 820px; margin: 0 auto; }
+.commit-item { display: flex; gap: 28px; align-items: flex-start; padding: 36px 0; border-bottom: 1px solid var(--line); }
+.commit-item:last-child { border-bottom: none; }
+.commit-num { font-size: clamp(48px,7vw,72px); font-weight: 800; color: var(--coral); line-height: 1; flex-shrink: 0; width: 80px; text-align: right; letter-spacing: -0.03em; }
+.commit-body h3 { margin: 0 0 10px; font-size: clamp(18px,2vw,22px); font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
+.commit-body p { margin: 0; color: var(--ink-mute); font-size: 15px; line-height: 1.7; }
+.sl-feat-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 640px) { .sl-feat-grid { grid-template-columns: repeat(2,1fr); } }
+.sl-feat { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 24px 22px; display: flex; gap: 14px; }
+.sl-feat .fi { width: 40px; height: 40px; border-radius: 8px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.sl-feat h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.sl-feat p { margin: 0; font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; }
+.svc-plain-list { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
+.svc-plain-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.svc-plain-row:last-child { border-bottom: none; }
+.svc-plain-row .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 6px; }
+.svc-plain-row h3 { margin: 0 0 3px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.svc-plain-row p { margin: 0; font-size: 13.5px; color: var(--ink-mute); line-height: 1.55; }
   </style>
 </head>
 <body>
@@ -200,30 +205,62 @@ section.block { padding: 80px 0; }
     </div>
   </section>
 
-  <section class="block" style="background:var(--cream);">
+  <section class="commitments">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for senior living</span><h2>Quiet crews. Low-odor products. Zero disruption.</h2><p>Senior residents are home around the clock. Our crews are trained to work quietly, respectfully, and efficiently — in occupied spaces where disruption is not an option.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div><h3>Low-odor &amp; zero-VOC coatings</h3><p>We use low-odor, zero-VOC interior paints appropriate for occupied senior spaces — protecting respiratory health and keeping residents comfortable throughout the process.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div><h3>Respectful crew conduct</h3><p>Our painters are trained to work in environments where residents may be vulnerable. Quiet, professional, and courteous — or we don't send them back.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>Off-hours options available</h3><p>For high-activity areas like dining rooms and activity lounges, we can schedule overnight or early-morning work — having the space restored and odor-free before residents arrive for breakfast.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg></div><h3>Wall protection systems</h3><p>Wheelchairs, walkers, and mobility equipment take a toll on walls. FRP panels, Lexan, and corner guards protect corridors and resident room entrances from daily impact damage.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><h3>Communication every step</h3><p>Daily updates to your facility director. Clear advance notice before any work begins in a residential wing. We keep your staff informed so they can keep residents comfortable.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg></div><h3>Maintenance programs available</h3><p>Annual touch-up schedules keep your community looking its best year-round — without the disruption and cost of a full repaint every few years.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Our approach to senior living</span>
+        <h2>Three things we never compromise on.</h2>
+      </div>
+      <div class="commit-list">
+        <div class="commit-item">
+          <div class="commit-num">01</div>
+          <div class="commit-body">
+            <h3>Quiet crews. Low-odor products. Residents won't know we're there.</h3>
+            <p>We use low-odor, zero-VOC interior paints and train our crews specifically for environments where residents may be vulnerable. Quiet, professional, and courteous — or they don't come back. For high-activity areas like dining rooms, we offer overnight and early-morning scheduling so the space is restored and odor-free before residents arrive for breakfast.</p>
+          </div>
+        </div>
+        <div class="commit-item">
+          <div class="commit-num">02</div>
+          <div class="commit-body">
+            <h3>Your staff stays informed. Your residents stay comfortable.</h3>
+            <p>Daily updates to your facility director. Clear advance notice before any work begins in a residential wing. We keep your team informed at every step so they can communicate proactively with residents and family members — and so no one is ever surprised by painters showing up outside their door.</p>
+          </div>
+        </div>
+        <div class="commit-item">
+          <div class="commit-num">03</div>
+          <div class="commit-body">
+            <h3>We protect the walls that protect your residents.</h3>
+            <p>Wheelchairs, walkers, and mobility equipment take a toll on walls. We install FRP panels, Lexan polycarbonate, and corner guards in corridors and room entrances to protect against daily impact damage — so your walls look fresh far longer between repaints, and your maintenance costs stay predictable.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
+      <div class="section-head"><span class="eyebrow">Why Preferred Painting for senior living</span><h2>Every detail, handled with care.</h2></div>
+      <div class="sl-feat-grid">
+        <div class="sl-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div><h3>Low-odor &amp; zero-VOC coatings</h3><p>Protecting respiratory health and keeping residents comfortable throughout the project — non-negotiable in any senior living environment.</p></div></div>
+        <div class="sl-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h3>Respectful crew conduct</h3><p>Our painters are trained to work in environments where residents may be vulnerable. Every employee undergoes background checks and drug testing before setting foot in your facility.</p></div></div>
+        <div class="sl-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h3>Off-hours options available</h3><p>For dining rooms and activity lounges, overnight or early-morning work means the space is completely restored — and odor-free — before morning activities begin.</p></div></div>
+        <div class="sl-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><h3>Wall protection systems</h3><p>FRP panels, Lexan, and corner guards protecting corridors and room entrances from the daily impact of mobility equipment — keeping your facility looking well-maintained longer.</p></div></div>
+        <div class="sl-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h3>Communication every step</h3><p>Daily progress updates to your facility director. No chasing us for status. Your team always knows what's happening and when each area will be cleared for resident use.</p></div></div>
+        <div class="sl-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div><h3>Maintenance programs available</h3><p>Annual touch-up schedules keep your community looking its best year-round — without the disruption and cost of a full repaint every few years.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--cream);">
+    <div class="container">
       <div class="section-head"><span class="eyebrow">Services for senior living communities</span><h2>Everything your community needs</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Commercial Interior Painting</h3><p>Common areas, dining rooms, activity spaces, corridors, resident rooms, and administrative offices — low-odor, occupied-space-rated coatings.</p></div>
-        <div class="svc-card"><h3>Commercial Exterior Painting</h3><p>Building exterior, entry canopies, patio areas, and outbuildings — fresh curb appeal that attracts prospective residents and families.</p></div>
-        <div class="svc-card"><h3>Wall Protection</h3><p>FRP panels, Lexan, and corner guards protecting high-traffic corridors and resident room entrances from mobility equipment damage.</p></div>
-        <div class="svc-card"><h3>Wallcovering</h3><p>Commercial vinyl wallcovering that wipes clean, resists staining, and adds warmth to dining rooms and common areas.</p></div>
-        <div class="svc-card"><h3>Ceiling Tile Replacement</h3><p>Stained or damaged ceiling tiles replaced in common areas and corridors — quietly and without disturbing residents nearby.</p></div>
-        <div class="svc-card"><h3>Maintenance Contracts</h3><p>Annual walkthroughs, touch-up programs, and priority emergency response to keep your community looking well-maintained year-round.</p></div>
+      <div class="svc-plain-list">
+        <div class="svc-plain-row"><div class="dot"></div><div><h3>Commercial Interior Painting</h3><p>Common areas, dining rooms, activity spaces, corridors, resident rooms, and administrative offices — low-odor, occupied-space-rated coatings throughout.</p></div></div>
+        <div class="svc-plain-row"><div class="dot"></div><div><h3>Commercial Exterior Painting</h3><p>Building exterior, entry canopies, patio areas, and outbuildings — fresh curb appeal that attracts prospective residents and families on tours.</p></div></div>
+        <div class="svc-plain-row"><div class="dot"></div><div><h3>Wall Protection</h3><p>FRP panels, Lexan, and corner guards protecting high-traffic corridors and resident room entrances from mobility equipment damage every single day.</p></div></div>
+        <div class="svc-plain-row"><div class="dot"></div><div><h3>Wallcovering</h3><p>Commercial vinyl wallcovering that wipes clean, resists staining, and adds warmth to dining rooms and common areas — durable and easy for your team to maintain.</p></div></div>
+        <div class="svc-plain-row"><div class="dot"></div><div><h3>Ceiling Tile Replacement</h3><p>Stained or damaged ceiling tiles replaced in common areas and corridors — quietly and without disturbing residents in the vicinity.</p></div></div>
+        <div class="svc-plain-row"><div class="dot"></div><div><h3>Maintenance Contracts</h3><p>Annual walkthroughs, touch-up programs, and priority emergency response to keep your community looking well-maintained year-round.</p></div></div>
       </div>
     </div>
   </section>
@@ -231,7 +268,7 @@ section.block { padding: 80px 0; }
   <section class="block" style="background:var(--navy);color:white;text-align:center;">
     <div class="container">
       <h2 style="font-size:clamp(28px,3.4vw,40px);margin:0 0 14px;color:white;font-weight:700;">Let's talk about your community.</h2>
-      <p style="color:rgba(255,255,255,0.78);max-width:52ch;margin:0 auto 28px;font-size:16px;line-height:1.6;">We'll walk your facility, understand your resident population, and propose a plan that keeps everyone comfortable throughout.</p>
+      <p style="color:rgba(255,255,255,0.78);max-width:52ch;margin:0 auto 28px;font-size:16px;line-height:1.6;">We'll walk your facility, understand your resident population, and propose a plan that keeps everyone comfortable throughout the entire project.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-primary">Request a Quote</a>
         <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>

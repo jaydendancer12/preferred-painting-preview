@@ -164,20 +164,28 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.compliance-bar { background: var(--navy-deep); padding: 20px 0; }
+.compliance-inner { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
+.comp-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 600; padding: 0 16px; border-right: 1px solid rgba(255,255,255,0.15); }
+.comp-item:last-child { border-right: none; }
+.comp-item svg { color: var(--coral); flex-shrink: 0; }
+.gov-feat-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 768px) { .gov-feat-grid { grid-template-columns: repeat(2,1fr); column-gap: 64px; } }
+.gov-feat { padding: 28px 0; border-bottom: 1px solid var(--line); }
+.gov-feat h3 { margin: 0 0 8px; font-size: 17px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+.gov-feat h3::before { content: ''; display: block; width: 4px; height: 18px; background: var(--red); border-radius: 2px; flex-shrink: 0; }
+.gov-feat p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; padding-left: 14px; }
+.doc-block { background: var(--navy); color: white; border-radius: 16px; padding: 36px 40px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+.doc-block h3 { margin: 0 0 8px; font-size: 20px; color: white; font-weight: 700; }
+.doc-block p { margin: 0; color: rgba(255,255,255,0.75); font-size: 14.5px; line-height: 1.6; max-width: 54ch; }
+.doc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.doc-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); border-radius: 4px; padding: 4px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; }
+.svc-grid-gov { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 640px) { .svc-grid-gov { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .svc-grid-gov { grid-template-columns: repeat(3,1fr); } }
+.svc-card-gov { border: 1px solid var(--line); border-radius: 10px; padding: 20px 18px; }
+.svc-card-gov h3 { margin: 0 0 6px; font-size: 14.5px; font-weight: 700; color: var(--navy); }
+.svc-card-gov p { margin: 0; font-size: 13px; color: var(--ink-mute); line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -200,30 +208,66 @@ section.block { padding: 80px 0; }
     </div>
   </section>
 
+  <div class="compliance-bar">
+    <div class="container">
+      <div class="compliance-inner">
+        <div class="comp-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Licensed &amp; Bonded</div>
+        <div class="comp-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Prevailing Wage Compliant</div>
+        <div class="comp-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>EPA Lead-Safe Certified</div>
+        <div class="comp-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Background-Checked Crews</div>
+        <div class="comp-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Certified Payroll Available</div>
+      </div>
+    </div>
+  </div>
+
   <section class="block" style="background:var(--cream);">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for government</span><h2>The documentation, certifications, and compliance to work in public facilities.</h2><p>Government projects come with requirements that most contractors aren't equipped to handle. We are — and we've built a track record across municipal, state, and federal facilities throughout Colorado.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3>Fully bonded contractor</h3><p>Licensed, bonded, and insured — with contractor bonding appropriate for government project requirements. All documentation available for your procurement department.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div><h3>Prevailing wage compliance</h3><p>We understand and comply with Colorado prevailing wage requirements for publicly funded construction projects. Certified payroll, labor compliance reports, and documentation provided.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg></div><h3>Government bid process experience</h3><p>We've navigated ITB, RFP, and sole-source procurement processes with municipal and state agencies. We understand the requirements and can provide all standard pre-qualification documentation.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div><h3>Background-checked crews</h3><p>Every Preferred Painting employee is background-checked and drug-tested. For facilities requiring additional security clearance or escort protocols, we coordinate directly with your security office.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h3>EPA Lead-Safe certified</h3><p>Many government buildings contain lead-based paint. Our EPA Lead-Safe certification ensures compliant remediation, proper documentation, and air quality records for your project files.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>Minimal public disruption</h3><p>Public facilities can't close for painting. We schedule phased work, off-hours crews, and section-by-section approaches that keep facilities open and operational throughout the project.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Why Preferred Painting for government</span>
+        <h2>The documentation, certifications, and compliance to work in public facilities.</h2>
+        <p>Government projects come with requirements that most contractors aren't equipped to handle. We are — and we've built a track record across municipal, state, and federal facilities throughout Colorado.</p>
+      </div>
+      <div class="gov-feat-grid">
+        <div class="gov-feat"><h3>Fully bonded contractor</h3><p>Licensed, bonded, and insured — with contractor bonding appropriate for government project requirements. All documentation available for your procurement department upon request.</p></div>
+        <div class="gov-feat"><h3>Prevailing wage compliance</h3><p>We understand and comply with Colorado prevailing wage requirements for publicly funded construction. Certified payroll, labor compliance reports, and documentation provided without being asked.</p></div>
+        <div class="gov-feat"><h3>Government bid process experience</h3><p>We've navigated ITB, RFP, and sole-source procurement processes with municipal and state agencies. We understand the requirements and provide all standard pre-qualification documentation.</p></div>
+        <div class="gov-feat"><h3>Background-checked crews</h3><p>Every Preferred Painting employee is background-checked and drug-tested. For facilities requiring additional security clearance or escort protocols, we coordinate directly with your security office.</p></div>
+        <div class="gov-feat"><h3>EPA Lead-Safe certified</h3><p>Many government buildings contain lead-based paint. Our EPA certification ensures compliant remediation, proper documentation, and air quality records for your project files.</p></div>
+        <div class="gov-feat"><h3>Minimal public disruption</h3><p>Public facilities can't close for painting. We schedule phased work, off-hours crews, and section-by-section approaches that keep facilities open and operational throughout the entire project.</p></div>
       </div>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
+      <div class="doc-block">
+        <div>
+          <h3>Pre-qualification documentation — ready when you need it.</h3>
+          <p>We maintain a complete pre-qualification package for government procurement teams. Everything you need to evaluate and approve us is already prepared and available immediately.</p>
+          <div class="doc-tags">
+            <span class="doc-tag">Certificate of Insurance</span>
+            <span class="doc-tag">Contractor License</span>
+            <span class="doc-tag">Bonding Documents</span>
+            <span class="doc-tag">EPA Certification</span>
+            <span class="doc-tag">W-9</span>
+            <span class="doc-tag">Safety Record</span>
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="flex-shrink:0;">Request documents</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--cream);">
+    <div class="container">
       <div class="section-head"><span class="eyebrow">Services for government &amp; public facilities</span><h2>Full compliance. Full scope.</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Commercial Interior Painting</h3><p>Public lobbies, courtrooms, offices, corridors, restrooms, and secured areas — scheduled around public hours and access requirements.</p></div>
-        <div class="svc-card"><h3>Commercial Exterior Painting</h3><p>Building exteriors, parking structures, and grounds facilities — maintaining the professional appearance public buildings require.</p></div>
-        <div class="svc-card"><h3>Lead Paint Remediation</h3><p>EPA-certified lead-safe renovation for older government buildings undergoing renovation or required maintenance.</p></div>
-        <div class="svc-card"><h3>Industrial Surface Prep</h3><p>Shot blasting and surface preparation for maintenance facilities, vehicle bays, and utility buildings within government campuses.</p></div>
-        <div class="svc-card"><h3>Wall Protection</h3><p>FRP panels and corner guards for high-traffic public corridors, service areas, and security checkpoints.</p></div>
-        <div class="svc-card"><h3>Maintenance Contracts</h3><p>Annual maintenance programs with documented service records — supporting your facilities management team's ongoing maintenance requirements.</p></div>
+      <div class="svc-grid-gov">
+        <div class="svc-card-gov"><h3>Commercial Interior Painting</h3><p>Public lobbies, courtrooms, offices, corridors, and restrooms — scheduled around public hours and access requirements.</p></div>
+        <div class="svc-card-gov"><h3>Commercial Exterior Painting</h3><p>Building exteriors, parking structures, and grounds facilities — maintaining the professional appearance public buildings require.</p></div>
+        <div class="svc-card-gov"><h3>Lead Paint Remediation</h3><p>EPA-certified lead-safe renovation for older government buildings undergoing renovation or required maintenance projects.</p></div>
+        <div class="svc-card-gov"><h3>Industrial Surface Prep</h3><p>Shot blasting and surface preparation for maintenance facilities, vehicle bays, and utility buildings on government campuses.</p></div>
+        <div class="svc-card-gov"><h3>Wall Protection</h3><p>FRP panels and corner guards for high-traffic public corridors, service areas, and security checkpoints throughout the facility.</p></div>
+        <div class="svc-card-gov"><h3>Maintenance Contracts</h3><p>Annual maintenance programs with documented service records — supporting your facilities management team's ongoing upkeep requirements.</p></div>
       </div>
     </div>
   </section>
@@ -231,7 +275,7 @@ section.block { padding: 80px 0; }
   <section class="block" style="background:var(--navy);color:white;text-align:center;">
     <div class="container">
       <h2 style="font-size:clamp(28px,3.4vw,40px);margin:0 0 14px;color:white;font-weight:700;">Ready to work with your procurement team?</h2>
-      <p style="color:rgba(255,255,255,0.78);max-width:52ch;margin:0 auto 28px;font-size:16px;line-height:1.6;">We have all required pre-qualification documentation available. Contact us to start the conversation about your facility's needs.</p>
+      <p style="color:rgba(255,255,255,0.78);max-width:52ch;margin:0 auto 28px;font-size:16px;line-height:1.6;">We have all required pre-qualification documentation available immediately. Contact us to start the conversation about your facility's needs.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-primary">Contact Us</a>
         <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>

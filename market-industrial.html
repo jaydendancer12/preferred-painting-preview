@@ -164,20 +164,25 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.process-strip { background: var(--navy); padding: 56px 0; }
+.process-strip h2 { color: white; text-align: center; font-size: clamp(22px,2.4vw,28px); margin: 0 0 36px; font-weight: 700; }
+.steps { display: flex; align-items: flex-start; justify-content: center; gap: 0; flex-wrap: wrap; }
+.step-item { flex: 1; min-width: 140px; max-width: 200px; text-align: center; position: relative; padding: 0 12px; }
+.step-item:not(:last-child)::after { content: '→'; position: absolute; right: -8px; top: 22px; color: var(--coral); font-size: 20px; font-weight: 700; }
+.step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--red); color: white; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+.step-item h4 { color: white; font-size: 14px; font-weight: 700; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+.step-item p { color: rgba(255,255,255,0.65); font-size: 12.5px; line-height: 1.5; margin: 0; }
+@media (max-width: 600px) { .step-item:not(:last-child)::after { display: none; } }
+.ind-feat-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 768px) { .ind-feat-grid { grid-template-columns: repeat(2,1fr); } }
+.ind-feat-card { background: var(--white); border-left: 4px solid var(--red); padding: 24px 24px 24px 28px; border-radius: 0 12px 12px 0; box-shadow: var(--shadow-sm); }
+.ind-feat-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
+.ind-feat-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.65; }
+.svc-two-col { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 640px) { .svc-two-col { grid-template-columns: repeat(2,1fr); column-gap: 56px; } }
+.svc-row { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.svc-row h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.svc-row p { margin: 0; font-size: 13.5px; color: var(--ink-mute); line-height: 1.55; }
   </style>
 </head>
 <body>
@@ -200,16 +205,33 @@ section.block { padding: 80px 0; }
     </div>
   </section>
 
+  <section class="process-strip">
+    <div class="container">
+      <h2>How we approach every industrial coating project</h2>
+      <div class="steps">
+        <div class="step-item"><div class="step-num">1</div><h4>Assess</h4><p>Walk the facility, test the substrate, identify traffic patterns and chemical exposure</p></div>
+        <div class="step-item"><div class="step-num">2</div><h4>Specify</h4><p>Select the right coating system in writing before any work begins — no guesswork</p></div>
+        <div class="step-item"><div class="step-num">3</div><h4>Prep</h4><p>Shot blast, grind, moisture-mitigate. Proper prep is the difference between 2 years and 15</p></div>
+        <div class="step-item"><div class="step-num">4</div><h4>Apply</h4><p>Apply in phased sections so your operation never fully shuts down during the project</p></div>
+        <div class="step-item"><div class="step-num">5</div><h4>Inspect</h4><p>Final walkthrough with documented signoff. We don't leave until it's right</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" style="background:var(--cream);">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for industrial</span><h2>We know industrial facilities from the floor up.</h2><p>Industrial coatings fail when the prep is wrong. We shot-blast, grind, moisture-test, and prime before any coating goes down — because the floor that carries your forklifts deserves better than a paint roller and a prayer.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l8-8 8 8-8 8z"></path><circle cx="12" cy="12" r="1.6" fill="currentColor"></circle></svg></div><h3>Shot blasting &amp; surface prep</h3><p>Proper surface preparation is the difference between a coating that lasts 2 years and one that lasts 15. We have shot blasting equipment and do all prep work in-house.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l5 3V10l5 3V6l6 4v10"></path></svg></div><h3>Heavy-duty floor coatings</h3><p>Epoxy, polyurethane, polyaspartic, and MMA systems specified for your load, traffic, and chemical exposure. We've coated millions of square feet of industrial floor in Colorado.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg></div><h3>Safety markings &amp; striping</h3><p>Forklift lanes, pedestrian walkways, dock staging zones, fire lane striping, and OSHA-compliant hazard markings. Applied with precision equipment that keeps lines straight and edges sharp.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3>EPA Lead-Safe certified</h3><p>Many older industrial facilities contain lead-based paint. We're EPA Lead-Safe certified for renovation, repair, and painting — keeping your project in compliance and your workers protected.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div><h3>Technical specification support</h3><p>Not sure which coating system is right for your facility? We'll walk through your operation, traffic patterns, and chemical exposures and recommend the appropriate system — in writing, before you commit to anything.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>Minimal production downtime</h3><p>We schedule in phases — section by section — so your operation never fully shuts down. Fast-cure coatings can return areas to forklift traffic in hours, not days.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Why Preferred Painting for industrial</span>
+        <h2>We know industrial facilities from the floor up.</h2>
+        <p>Industrial coatings fail when the prep is wrong. We shot-blast, grind, moisture-test, and prime before any coating goes down.</p>
+      </div>
+      <div class="ind-feat-grid">
+        <div class="ind-feat-card"><h3>Shot blasting &amp; surface prep</h3><p>We own our shot blasting equipment and do all prep in-house. Proper preparation is what separates a coating that lasts 2 years from one that lasts 15.</p></div>
+        <div class="ind-feat-card"><h3>Heavy-duty floor coatings</h3><p>Epoxy, polyurethane, polyaspartic, and MMA systems specified for your load, traffic, and chemical exposure. Millions of square feet coated across Colorado.</p></div>
+        <div class="ind-feat-card"><h3>Safety markings &amp; striping</h3><p>Forklift lanes, pedestrian walkways, dock staging zones, fire lane striping, and OSHA-compliant hazard markings. Applied with precision to stay sharp for years.</p></div>
+        <div class="ind-feat-card"><h3>EPA Lead-Safe certified</h3><p>Many older industrial facilities contain lead-based paint. Our EPA certification ensures compliant renovation, proper documentation, and protected workers.</p></div>
+        <div class="ind-feat-card"><h3>Technical specification support</h3><p>Not sure which coating system is right for your operation? We'll walk your facility and recommend the appropriate system in writing before you commit to anything.</p></div>
+        <div class="ind-feat-card"><h3>Minimal production downtime</h3><p>Fast-cure coatings return areas to forklift traffic in hours. Phased application keeps your facility running throughout the project with zero full shutdowns.</p></div>
       </div>
     </div>
   </section>
@@ -217,13 +239,13 @@ section.block { padding: 80px 0; }
   <section class="block">
     <div class="container">
       <div class="section-head"><span class="eyebrow">Services for industrial facilities</span><h2>The full scope, in-house</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Industrial Surface Prep</h3><p>Shot blasting, concrete grinding, moisture mitigation, and removal of failing coatings — the foundation of every long-lasting floor.</p></div>
-        <div class="svc-card"><h3>Stained &amp; Polished Concrete</h3><p>Where industrial meets professional — polished concrete floors for showrooms, distribution hubs, and facilities that want to impress visitors.</p></div>
-        <div class="svc-card"><h3>Commercial Interior Painting</h3><p>Office areas, break rooms, locker rooms, and administrative spaces within your facility.</p></div>
-        <div class="svc-card"><h3>Wall Protection (FRP)</h3><p>Fiberglass Reinforced Plastic panels for food processing, cold storage, and high-impact walls. Chemical resistant and easy to clean.</p></div>
-        <div class="svc-card"><h3>Lead Paint Remediation</h3><p>EPA-certified lead-safe renovation and removal for older industrial buildings undergoing renovation or repaint.</p></div>
-        <div class="svc-card"><h3>Fire Proofing &amp; Specialty Ceiling</h3><p>Intumescent coatings for exposed structural steel and dryfall paint for high-bay ceilings.</p></div>
+      <div class="svc-two-col">
+        <div class="svc-row"><h3>Industrial Surface Prep</h3><p>Shot blasting, concrete grinding, moisture mitigation, and removal of failing coatings — the foundation of every long-lasting floor.</p></div>
+        <div class="svc-row"><h3>Stained &amp; Polished Concrete</h3><p>Polished concrete for showrooms, distribution hubs, and facilities that want to impress visitors while maximizing floor durability.</p></div>
+        <div class="svc-row"><h3>Commercial Interior Painting</h3><p>Office areas, break rooms, locker rooms, and administrative spaces within your facility — same quality as any commercial interior.</p></div>
+        <div class="svc-row"><h3>Wall Protection (FRP)</h3><p>Fiberglass Reinforced Plastic panels for food processing, cold storage, and high-impact walls. Chemical resistant and easy to clean.</p></div>
+        <div class="svc-row"><h3>Lead Paint Remediation</h3><p>EPA-certified lead-safe renovation and removal for older industrial buildings undergoing renovation or scheduled repaint.</p></div>
+        <div class="svc-row"><h3>Fire Proofing &amp; Specialty Ceiling</h3><p>Intumescent coatings for exposed structural steel and dryfall paint for high-bay ceilings — the coatings your GC doesn't want to touch.</p></div>
       </div>
     </div>
   </section>
@@ -231,7 +253,7 @@ section.block { padding: 80px 0; }
   <section class="block" style="background:var(--navy);color:white;text-align:center;">
     <div class="container">
       <h2 style="font-size:clamp(28px,3.4vw,40px);margin:0 0 14px;color:white;font-weight:700;">Let's look at your facility.</h2>
-      <p style="color:rgba(255,255,255,0.78);max-width:52ch;margin:0 auto 28px;font-size:16px;line-height:1.6;">We'll walk your floor, assess your substrate, and spec the right coating system — before you spend a dollar.</p>
+      <p style="color:rgba(255,255,255,0.78);max-width:52ch;margin:0 auto 28px;font-size:16px;line-height:1.6;">We'll walk your floor, assess your substrate, and spec the right system — before you spend a dollar.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-primary">Request a Quote</a>
         <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>

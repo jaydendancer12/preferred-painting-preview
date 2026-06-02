@@ -164,21 +164,32 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
-.broncos-badge { display: inline-flex; align-items: center; gap: 12px; background: var(--cream); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin-top: 24px; font-size: 14px; font-weight: 600; color: var(--navy); }
+.partner-spot { background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 40px 0; }
+.partner-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 32px; }
+.partner-badge { display: flex; align-items: center; gap: 14px; background: var(--white); border: 2px solid var(--navy); border-radius: 12px; padding: 16px 24px; flex-shrink: 0; }
+.partner-badge .emblem { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: var(--coral); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; letter-spacing: -0.02em; }
+.partner-badge-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: 2px; }
+.partner-badge-name { font-size: 15px; font-weight: 700; color: var(--navy); }
+.partner-text h3 { margin: 0 0 6px; font-size: 18px; font-weight: 700; color: var(--navy); }
+.partner-text p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.6; max-width: 58ch; }
+.sp-feat-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .sp-feat-grid { grid-template-columns: repeat(2,1fr); } }
+.sp-feat-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: flex; gap: 16px; align-items: flex-start; transition: border-color 0.18s; }
+.sp-feat-card:hover { border-color: var(--coral); }
+.sp-feat-card .fi { width: 46px; height: 46px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.sp-feat-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
+.sp-feat-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.65; }
+.svc-split { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 768px) { .svc-split { grid-template-columns: repeat(2,1fr); } }
+.svc-category { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.svc-cat-head { background: var(--navy); color: white; padding: 16px 22px; }
+.svc-cat-head h3 { margin: 0; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+.svc-cat-body { padding: 8px 0; }
+.svc-cat-item { display: flex; gap: 12px; align-items: flex-start; padding: 14px 22px; border-bottom: 1px solid var(--line); }
+.svc-cat-item:last-child { border-bottom: none; }
+.svc-cat-item svg { color: var(--red); flex-shrink: 0; margin-top: 2px; }
+.svc-cat-item h4 { margin: 0 0 3px; font-size: 14px; font-weight: 700; color: var(--navy); }
+.svc-cat-item p { margin: 0; font-size: 13px; color: var(--ink-mute); line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -190,7 +201,7 @@ section.block { padding: 80px 0; }
       <div class="page-hero-grid">
         <div>
           <h1>Sports facility painting — <em>from community gyms to professional stadiums.</em></h1>
-          <p class="lede">Professional stadiums, arenas, private gyms, and athletic training facilities. Custom logos painted by hand to exact brand standards, specialty floor coatings built for athletic use, and the logistical experience to work around event calendars. Proud Small Business Partners of the Denver Broncos.</p>
+          <p class="lede">Professional stadiums, arenas, private gyms, and athletic training facilities. Custom logos painted by hand to exact brand standards, specialty floor coatings, and the logistical experience to work around any event calendar.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
             <a href="contact.html" class="btn btn-primary">Request a Quote</a>
             <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>
@@ -201,16 +212,38 @@ section.block { padding: 80px 0; }
     </div>
   </section>
 
+  <section class="partner-spot">
+    <div class="container">
+      <div class="partner-inner">
+        <div class="partner-badge">
+          <div class="emblem">DEN<br>★</div>
+          <div>
+            <div class="partner-badge-label">Official Partner</div>
+            <div class="partner-badge-name">Denver Broncos</div>
+          </div>
+        </div>
+        <div class="partner-text">
+          <h3>Proud Official Small Business Partner of the Denver Broncos.</h3>
+          <p>This partnership reflects our long history working in and around professional sports facilities at the highest level — and the trust that comes with 30+ years of showing up, doing the work right, and leaving the site clean.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" style="background:var(--cream);">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for sports facilities</span><h2>Precision graphics. Event-calendar-aware scheduling.</h2><p>Sports facilities have two things in common: they can't close, and visual standards are held to a higher bar than almost any other building type. We deliver both.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3v18"></path></svg></div><h3>Custom logos &amp; graphics</h3><p>Team logos, court markings, end zone graphics, and custom branding elements — painted by hand to exact color specifications. We work from your design files and validate color matches before application.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><h3>Event-calendar scheduling</h3><p>We coordinate with your events team, building management, and groundskeeping to find windows that don't interfere with games, tournaments, or training schedules. Often that means overnight or off-season work.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l8-8 8 8-8 8z"></path><circle cx="12" cy="12" r="1.6" fill="currentColor"></circle></svg></div><h3>Athletic floor coating systems</h3><p>Polyurethane and epoxy systems for gym floors, field houses, and multi-sport surfaces. Specified for the right slip resistance, durability, and appearance your facility demands.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l5 3V10l5 3V6l6 4v10"></path></svg></div><h3>Stadium exterior expertise</h3><p>Exterior masonry, metal, and concrete coatings for stadiums and arenas — including swing stage work for high-rise sections and specialized coatings for high-UV exposed surfaces.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3>Denver Broncos official partner</h3><p>Preferred Painting is a proud official Small Business Partner of the Denver Broncos — reflecting our experience working in and around professional sports facilities at the highest level.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h3>Fixed-price quotes</h3><p>Sports facility projects often involve tight budgets and fixed event-driven deadlines. Our fixed-price approach means no surprises — ever.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Why Preferred Painting for sports facilities</span>
+        <h2>Precision graphics. Event-calendar-aware scheduling.</h2>
+        <p>Sports facilities have two things in common: they can't close, and visual standards are held to a higher bar than almost any other building type. We deliver on both.</p>
+      </div>
+      <div class="sp-feat-grid">
+        <div class="sp-feat-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/></svg></div><div><h3>Custom logos &amp; graphics</h3><p>Team logos, court markings, end zone graphics — painted by hand to exact color specifications. We work from your design files and validate color matches before application.</p></div></div>
+        <div class="sp-feat-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><h3>Event-calendar scheduling</h3><p>We coordinate with your events team, building management, and groundskeeping to find windows that don't interfere with games, tournaments, or training schedules.</p></div></div>
+        <div class="sp-feat-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l8-8 8 8-8 8z"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></div><div><h3>Athletic floor coating systems</h3><p>Polyurethane and epoxy systems for gym floors, field houses, and multi-sport surfaces — specified for the right slip resistance, durability, and appearance your facility demands.</p></div></div>
+        <div class="sp-feat-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l5 3V10l5 3V6l6 4v10"/></svg></div><div><h3>Stadium exterior expertise</h3><p>Exterior masonry, metal, and concrete coatings for stadiums and arenas — including swing stage work for high-rise sections and UV-stable coatings for Colorado sun exposure.</p></div></div>
+        <div class="sp-feat-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h3>Denver Broncos official partner</h3><p>Preferred Painting is a proud official Small Business Partner of the Denver Broncos — a recognition of our experience in professional sports facilities across the metro area.</p></div></div>
+        <div class="sp-feat-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h3>Fixed-price quotes</h3><p>Sports facility projects often involve tight budgets and fixed event-driven deadlines. Our fixed-price approach means no surprises — ever — regardless of how complex the project.</p></div></div>
       </div>
     </div>
   </section>
@@ -218,13 +251,25 @@ section.block { padding: 80px 0; }
   <section class="block">
     <div class="container">
       <div class="section-head"><span class="eyebrow">Services for sports facilities</span><h2>Every surface, every application</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Custom Logos &amp; Court Graphics</h3><p>Hand-painted team logos, court markings, and branded graphics to exact color specifications — for any sport, any level.</p></div>
-        <div class="svc-card"><h3>Athletic Floor Coatings</h3><p>Polyurethane and epoxy floor systems for gym floors, field houses, and multi-sport courts — including surface prep and line striping.</p></div>
-        <div class="svc-card"><h3>Commercial Interior Painting</h3><p>Locker rooms, training facilities, offices, concession areas, and public corridors — painted around your event schedule.</p></div>
-        <div class="svc-card"><h3>Commercial Exterior Painting</h3><p>Stadium and arena exteriors, masonry coatings, and metal surfaces — including high-rise sections via swing stage.</p></div>
-        <div class="svc-card"><h3>Industrial Surface Prep</h3><p>Shot blasting and concrete surface preparation for field house floors, loading areas, and maintenance facilities.</p></div>
-        <div class="svc-card"><h3>Safety Markings &amp; Striping</h3><p>Parking lot striping, pedestrian safety markings, fire lanes, and ADA-compliant markings for stadium grounds and parking facilities.</p></div>
+      <div class="svc-split">
+        <div class="svc-category">
+          <div class="svc-cat-head"><h3>Floor &amp; Court Services</h3></div>
+          <div class="svc-cat-body">
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Custom Logos &amp; Court Graphics</h4><p>Hand-painted to exact color specs for any sport, any level.</p></div></div>
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Athletic Floor Coatings</h4><p>Polyurethane and epoxy systems including surface prep and line striping.</p></div></div>
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Industrial Surface Prep</h4><p>Shot blasting and grinding for field house and loading area floors.</p></div></div>
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Safety Markings &amp; Striping</h4><p>Parking, fire lanes, and ADA-compliant markings for grounds and lots.</p></div></div>
+          </div>
+        </div>
+        <div class="svc-category">
+          <div class="svc-cat-head"><h3>Building &amp; Exterior Services</h3></div>
+          <div class="svc-cat-body">
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Commercial Interior Painting</h4><p>Locker rooms, training facilities, offices, concession areas, and corridors.</p></div></div>
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Commercial Exterior Painting</h4><p>Stadium and arena exteriors including high-rise sections via swing stage.</p></div></div>
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Maintenance Contracts</h4><p>Scheduled touch-ups coordinated around your season and event calendar.</p></div></div>
+            <div class="svc-cat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><h4>Wall Protection</h4><p>FRP panels and corner guards for high-impact locker room and service areas.</p></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

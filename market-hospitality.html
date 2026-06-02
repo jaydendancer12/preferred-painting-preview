@@ -164,20 +164,32 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.pillars-h { display: grid; grid-template-columns: 1fr; gap: 2px; background: var(--line); }
+@media (min-width: 768px) { .pillars-h { grid-template-columns: repeat(3,1fr); } }
+.pillar-h { background: var(--white); padding: 48px 36px; position: relative; }
+.pillar-h-num { font-size: 72px; font-weight: 800; color: var(--coral-soft); line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
+.pillar-h h3 { font-size: clamp(18px,2vw,22px); font-weight: 700; color: var(--navy); margin: 0 0 14px; letter-spacing: -0.015em; }
+.pillar-h p { color: var(--ink-mute); font-size: 14.5px; line-height: 1.7; margin: 0; }
+.pillar-h.accent { background: var(--navy); }
+.pillar-h.accent .pillar-h-num { color: rgba(255,255,255,0.12); }
+.pillar-h.accent h3 { color: white; }
+.pillar-h.accent p { color: rgba(255,255,255,0.72); }
+.hosp-feat-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .hosp-feat-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .hosp-feat-grid { grid-template-columns: repeat(3,1fr); } }
+.hosp-feat { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 24px 20px; }
+.hosp-feat .fi { width: 40px; height: 40px; border-radius: 8px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.hosp-feat h3 { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.hosp-feat p { margin: 0; color: var(--ink-mute); font-size: 13.5px; line-height: 1.65; }
+.svc-alt { display: flex; flex-direction: column; gap: 0; }
+.svc-alt-row { display: grid; grid-template-columns: 1fr; gap: 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 640px) { .svc-alt-row { grid-template-columns: repeat(2,1fr); } }
+.svc-alt-row:last-child { border-bottom: none; }
+.svc-alt-cell { padding: 24px; }
+.svc-alt-row:nth-child(even) .svc-alt-cell:first-child { background: var(--cream); }
+.svc-alt-row:nth-child(odd) .svc-alt-cell:last-child { background: var(--cream); }
+.svc-alt-cell h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.svc-alt-cell p { margin: 0; color: var(--ink-mute); font-size: 13.5px; line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -189,7 +201,7 @@ section.block { padding: 80px 0; }
       <div class="page-hero-grid">
         <div>
           <h1>Hospitality painting where <em>guest experience is everything.</em></h1>
-          <p class="lede">Hotels, resorts, event venues, and restaurants. Guest-facing environments where finish quality and scheduling precision matter enormously — painting must be done right and completed during narrow maintenance windows without ever affecting a single guest experience.</p>
+          <p class="lede">Hotels, resorts, event venues, and restaurants. Guest-facing environments where finish quality and scheduling precision matter enormously — painting must be done right and completed during narrow maintenance windows without ever affecting a single guest.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
             <a href="contact.html" class="btn btn-primary">Request a Quote</a>
             <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>
@@ -200,16 +212,38 @@ section.block { padding: 80px 0; }
     </div>
   </section>
 
+  <div class="pillars-h">
+    <div class="pillar-h">
+      <div class="pillar-h-num">01</div>
+      <h3>Timing that protects your guests</h3>
+      <p>Hotel corridors, lobbies, and dining rooms are occupied around the clock. We plan work for the 2–4 AM window, or coordinate with your PMS to identify low-occupancy dates months in advance — so not one guest is ever inconvenienced.</p>
+    </div>
+    <div class="pillar-h accent">
+      <div class="pillar-h-num">02</div>
+      <h3>Finish quality your guests will notice</h3>
+      <p>Hospitality guests notice everything. Our painters bring the same precision to your lobby walls as you bring to your room amenities — proper primer, proper coats, and a flawless final product that photographs beautifully and lasts.</p>
+    </div>
+    <div class="pillar-h">
+      <div class="pillar-h-num">03</div>
+      <h3>Invisible to guests. Obvious in results.</h3>
+      <p>Drop cloths, masking, equipment — completely cleared before your morning staff arrives. Your FOH team will never encounter a painter or a paint smell during service hours. Guests should simply think the property looks exceptional.</p>
+    </div>
+  </div>
+
   <section class="block" style="background:var(--cream);">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for hospitality</span><h2>Premium finishes. Guest-invisible process.</h2><p>In hospitality, the work matters — but so does the absence of any evidence that work was done. Guests should walk through a freshly painted lobby and simply think it looks beautiful.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>Narrow maintenance window scheduling</h3><p>Hotel corridors, lobbies, and dining rooms are occupied around the clock. We plan work for the 2–4 AM window, or coordinate with your PMS to identify low-occupancy dates months in advance.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg></div><h3>Premium finish quality</h3><p>Hospitality guests notice everything. Our painters bring the same precision to your lobby walls as you bring to your room amenities — proper primer, proper coats, and a flawless final product.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div><h3>Low-odor coatings for guest areas</h3><p>Low-odor and zero-VOC coatings for all guest-facing work — guests in adjacent rooms or areas won't notice a thing.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></div><h3>Brand standards compliance</h3><p>Franchise hotel brands have strict paint and finish standards. We work from your brand guide, coordinate with your brand representative, and document compliance at completion.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><h3>Renovation project integration</h3><p>PIP compliance, brand refresh, or room block renovation — we integrate with your GC and renovation timeline, delivering our scope on the day it needs to be done, every time.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h3>Clean sites, every shift</h3><p>Drop cloths, masking, equipment — completely cleared before your morning staff arrives. Your FOH team should never encounter a painter or a paint smell during service hours.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Why Preferred Painting for hospitality</span>
+        <h2>Premium finishes. Guest-invisible process.</h2>
+        <p>In hospitality, the work matters — but so does the complete absence of any evidence that work was done. Our job isn't just to paint well, it's to make it look like it always looked that good.</p>
+      </div>
+      <div class="hosp-feat-grid">
+        <div class="hosp-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Narrow maintenance window scheduling</h3><p>We plan work for your lowest-occupancy dates and off-peak hours — identified months in advance through coordination with your front office team.</p></div>
+        <div class="hosp-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><h3>Premium finish quality</h3><p>The same precision you bring to your amenities, we bring to your walls. Proper primer, proper coats, and a flawless final result — every time, in every space.</p></div>
+        <div class="hosp-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h3>Low-odor coatings for guest areas</h3><p>Low-odor and zero-VOC coatings for all guest-facing work — guests in adjacent rooms or areas won't notice a thing during or after the project.</p></div>
+        <div class="hosp-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div><h3>Brand standards compliance</h3><p>Franchise hotel brands have strict paint and finish standards. We work from your brand guide, coordinate with your representative, and document compliance at project completion.</p></div>
+        <div class="hosp-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Renovation project integration</h3><p>PIP compliance, brand refresh, or room block renovation — we integrate with your GC and renovation timeline, delivering our scope precisely on the day it needs to be done.</p></div>
+        <div class="hosp-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Clean sites, every shift</h3><p>Drop cloths, masking, and equipment gone before your morning staff arrives. Your FOH team should never encounter a painter or paint smell during service hours.</p></div>
       </div>
     </div>
   </section>
@@ -217,13 +251,21 @@ section.block { padding: 80px 0; }
   <section class="block">
     <div class="container">
       <div class="section-head"><span class="eyebrow">Services for hotels, resorts &amp; restaurants</span><h2>From guest rooms to back-of-house</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Commercial Interior Painting</h3><p>Guest rooms, corridors, lobbies, ballrooms, dining rooms, fitness centers, and back-of-house areas — all coated to brand spec.</p></div>
-        <div class="svc-card"><h3>Commercial Exterior Painting</h3><p>Building facades, pool surrounds, patio structures, porte-cocheres, and outbuildings — curb appeal that matches your property's standard.</p></div>
-        <div class="svc-card"><h3>Wallcovering</h3><p>Commercial vinyl wallcovering removal and installation in guest corridors, lobbies, and dining rooms — the signature finish that defines hospitality interiors.</p></div>
-        <div class="svc-card"><h3>Wood Refinishing</h3><p>Doors, millwork, trim, and decorative wood elements refinished to original luster — without the cost of replacement.</p></div>
-        <div class="svc-card"><h3>Commercial Flooring</h3><p>Carpet, LVT, and polished concrete for lobbies, fitness centers, and event spaces — supply and full installation.</p></div>
-        <div class="svc-card"><h3>Ceiling Tile Replacement</h3><p>Stained or damaged ceiling tiles replaced in any area of the property — fast, clean, and invisible to guests.</p></div>
+      <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;">
+        <div class="svc-alt">
+          <div class="svc-alt-row">
+            <div class="svc-alt-cell"><h3>Commercial Interior Painting</h3><p>Guest rooms, corridors, lobbies, ballrooms, dining rooms, fitness centers, and back-of-house — all coated to brand spec.</p></div>
+            <div class="svc-alt-cell"><h3>Commercial Exterior Painting</h3><p>Building facades, pool surrounds, patio structures, and outbuildings — curb appeal that matches your property's standard.</p></div>
+          </div>
+          <div class="svc-alt-row">
+            <div class="svc-alt-cell"><h3>Wallcovering</h3><p>Commercial vinyl removal and installation in guest corridors, lobbies, and dining rooms — the signature finish that defines hospitality interiors.</p></div>
+            <div class="svc-alt-cell"><h3>Wood Refinishing</h3><p>Doors, millwork, trim, and decorative wood elements refinished to original luster — without the cost of replacement.</p></div>
+          </div>
+          <div class="svc-alt-row">
+            <div class="svc-alt-cell"><h3>Commercial Flooring</h3><p>Carpet, LVT, and polished concrete for lobbies, fitness centers, and event spaces — supply and full installation.</p></div>
+            <div class="svc-alt-cell"><h3>Ceiling Tile Replacement</h3><p>Stained or damaged tiles replaced in any area of the property — fast, clean, and invisible to guests.</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

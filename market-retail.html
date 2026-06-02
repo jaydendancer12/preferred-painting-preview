@@ -164,20 +164,24 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.retail-hero-grid { display: grid; gap: 36px; align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 960px) { .retail-hero-grid { grid-template-columns: 1fr 1.2fr; gap: 56px; } }
+.feat-row { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.feat-row:first-child { padding-top: 0; }
+.feat-row:last-child { border-bottom: none; padding-bottom: 0; }
+.feat-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.feat-body h3 { margin: 0 0 6px; font-size: 16px; font-weight: 700; color: var(--navy); }
+.feat-body p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.svc-grid-retail { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px) { .svc-grid-retail { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .svc-grid-retail { grid-template-columns: repeat(3,1fr); } }
+.svc-card-retail { background: var(--cream); border-radius: 12px; padding: 22px 20px; }
+.svc-card-retail h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.svc-card-retail p { margin: 0; color: var(--ink-mute); font-size: 13.5px; line-height: 1.6; }
+.cta-phone { background: var(--red); color: white; padding: 56px 0; text-align: center; }
+.cta-phone h2 { color: white; font-size: clamp(24px,3vw,36px); margin: 0 0 10px; font-weight: 700; }
+.cta-phone p { color: rgba(255,255,255,0.82); font-size: 16px; margin: 0 0 28px; }
+.phone-big { font-size: clamp(32px,5vw,52px); font-weight: 800; color: white; letter-spacing: -0.02em; display: block; margin-bottom: 20px; }
   </style>
 </head>
 <body>
@@ -186,30 +190,36 @@ section.block { padding: 80px 0; }
   <section class="page-hero">
     <div class="container">
       <div class="crumbs"><a href="index.html">Home</a><span class="sep">·</span><a href="markets.html">Markets We Serve</a><span class="sep">·</span><span>Retail</span></div>
-      <div class="page-hero-grid">
+      <div class="retail-hero-grid">
+        <div class="about-photos" style="aspect-ratio:4/3;"><img src="https://preferredp1dev.wpenginepowered.com/wp-content/uploads/2026/05/mural-1.jpg" alt="Retail space painting"></div>
         <div>
           <h1>Retail &amp; restaurant painting that <em>drives first impressions.</em></h1>
-          <p class="lede">High-traffic storefronts, restaurants, and shopping centers — where the appearance of your space directly impacts revenue. We schedule around your peak hours and work closely with store teams to minimize disruption.</p>
+          <p class="lede">High-traffic storefronts, restaurants, and shopping centers — where the appearance of your space directly impacts revenue. We schedule around your hours and keep sales running.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
             <a href="contact.html" class="btn btn-primary">Request a Quote</a>
             <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>
           </div>
         </div>
-        <div class="about-photos" style="aspect-ratio:16/9;"><img src="https://preferredp1dev.wpenginepowered.com/wp-content/uploads/2026/05/mural-1.jpg" alt="Retail space painting"></div>
       </div>
     </div>
   </section>
 
   <section class="block" style="background:var(--cream);">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for retail</span><h2>Fast turnarounds. Zero sales disruption.</h2><p>In retail, downtime is lost revenue. We've built our scheduling, crew size, and site protocol around that reality.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>After-hours scheduling</h3><p>We paint overnight and on weekends so your store or restaurant opens each morning looking fresh — without a single customer ever seeing the work in progress.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg></div><h3>Brand-matched color accuracy</h3><p>Retail environments demand precise brand color matching. We work from your spec sheets and validate matches before a single drop of paint goes on your walls.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3>High-traffic durable coatings</h3><p>Retail floors, walls, and surfaces take punishment daily. We specify coatings built for traffic, cleaning chemicals, and the wear patterns specific to your type of operation.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div><h3>Multi-location coordination</h3><p>Managing a retail portfolio across multiple locations? We coordinate scheduling, color programs, and service records across your entire portfolio from a single point of contact.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h3>Clean sites, every night</h3><p>Drop cloths, masking, overspray — all gone before we leave. Your staff walks into a clean, safe store every morning, not a construction zone.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><h3>Fixed-price, no surprises</h3><p>We walk every project before quoting. What we put in writing is what you pay — no change orders unless you ask us to do something different.</p></div>
+      <div style="display:grid;gap:56px;align-items:start;" class="about-grid">
+        <div>
+          <span class="eyebrow">Why Preferred Painting for retail</span>
+          <h2 style="font-size:clamp(26px,3vw,38px);margin:12px 0 28px;color:var(--navy);font-weight:700;letter-spacing:-0.015em;">Fast turnarounds.<br>Zero sales disruption.</h2>
+          <p style="color:var(--ink-mute);font-size:16px;line-height:1.7;margin:0;">In retail, downtime is lost revenue. We've built our scheduling, crew size, and site protocol around that reality — painting happens when customers aren't there, and cleanup happens before staff arrive.</p>
+        </div>
+        <div>
+          <div class="feat-row"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="feat-body"><h3>After-hours &amp; overnight scheduling</h3><p>We paint overnight and on weekends so your store opens each morning looking fresh — without a single customer ever seeing work in progress.</p></div></div>
+          <div class="feat-row"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><div class="feat-body"><h3>Brand-matched color accuracy</h3><p>Retail environments demand precise brand color matching. We work from your spec sheets and validate matches before a single drop goes on your walls.</p></div></div>
+          <div class="feat-row"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="feat-body"><h3>High-traffic durable coatings</h3><p>Retail walls take daily punishment. We specify coatings built for traffic, cleaning chemicals, and the wear patterns specific to your operation.</p></div></div>
+          <div class="feat-row"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="feat-body"><h3>Multi-location coordination</h3><p>Managing a retail portfolio across multiple locations? We coordinate scheduling, color programs, and service records across your entire portfolio from one contact.</p></div></div>
+          <div class="feat-row"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg></div><div class="feat-body"><h3>Clean sites, every night</h3><p>Drop cloths, masking, and overspray gone before we leave. Your staff walks into a clean, safe environment every morning — not a construction zone.</p></div></div>
+          <div class="feat-row"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="feat-body"><h3>Fixed-price, no surprises</h3><p>We walk every project before quoting. What we put in writing is what you pay — critical when you're managing a budget set months in advance.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -217,25 +227,23 @@ section.block { padding: 80px 0; }
   <section class="block">
     <div class="container">
       <div class="section-head"><span class="eyebrow">Services for retail &amp; restaurants</span><h2>From storefront to back-of-house</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Commercial Interior Painting</h3><p>Sales floors, dining rooms, corridors, restrooms, and back-of-house areas painted to your brand specifications.</p></div>
-        <div class="svc-card"><h3>Commercial Exterior Painting</h3><p>Storefronts, awning frames, fascia, and signage surrounds — the first impression your customers see.</p></div>
-        <div class="svc-card"><h3>Wall Protection</h3><p>FRP panels, Lexan polycarbonate, and corner guards for high-impact areas like loading docks, prep kitchens, and service corridors.</p></div>
-        <div class="svc-card"><h3>Wallcovering</h3><p>Removal of existing wallcovering and installation of commercial vinyl — washable, durable, and brand-accurate.</p></div>
-        <div class="svc-card"><h3>Write-On Surfaces</h3><p>Chalkboard and dry-erase coatings for menu boards, specials displays, and interactive customer-facing surfaces.</p></div>
-        <div class="svc-card"><h3>Ceiling Tile Replacement</h3><p>Stained or damaged tiles replaced to match your existing grid — fast, clean, and invisible to customers.</p></div>
+      <div class="svc-grid-retail">
+        <div class="svc-card-retail"><h3>Commercial Interior Painting</h3><p>Sales floors, dining rooms, corridors, restrooms, and back-of-house to your brand specifications.</p></div>
+        <div class="svc-card-retail"><h3>Commercial Exterior Painting</h3><p>Storefronts, awning frames, fascia, and signage surrounds — the first impression customers see.</p></div>
+        <div class="svc-card-retail"><h3>Wall Protection</h3><p>FRP panels, Lexan polycarbonate, and corner guards for loading docks, prep kitchens, and service corridors.</p></div>
+        <div class="svc-card-retail"><h3>Wallcovering</h3><p>Removal and installation of commercial vinyl — washable, durable, and brand-accurate.</p></div>
+        <div class="svc-card-retail"><h3>Write-On Surfaces</h3><p>Chalkboard and dry-erase coatings for menu boards, specials displays, and interactive customer surfaces.</p></div>
+        <div class="svc-card-retail"><h3>Ceiling Tile Replacement</h3><p>Stained or damaged tiles replaced to match your existing grid — fast, clean, invisible to customers.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="block" style="background:var(--navy);color:white;text-align:center;">
+  <section class="cta-phone">
     <div class="container">
-      <h2 style="font-size:clamp(28px,3.4vw,40px);margin:0 0 14px;color:white;font-weight:700;">Let's talk about your location.</h2>
-      <p style="color:rgba(255,255,255,0.78);max-width:52ch;margin:0 auto 28px;font-size:16px;line-height:1.6;">We'll schedule around your hours, quote it fixed, and have your space looking sharp — without missing a day of sales.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary">Request a Quote</a>
-        <a href="tel:3036950147" class="btn btn-outline-light">Call (303) 695-0147</a>
-      </div>
+      <h2>Let's talk about your location.</h2>
+      <p>We'll schedule around your hours, quote it fixed, and have your space looking sharp — without missing a day of sales.</p>
+      <a href="tel:3036950147" class="phone-big">(303) 695-0147</a>
+      <a href="contact.html" class="btn btn-outline-light">Or send us a message</a>
     </div>
   </section>
 </main>

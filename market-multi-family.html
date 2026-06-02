@@ -164,66 +164,96 @@ section.block { padding: 80px 0; }
 .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); }
 </style>
   <style>
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .feature-grid { grid-template-columns: repeat(3,1fr); } }
-.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
-.feature-card .fi { width: 44px; height: 44px; border-radius: 10px; background: var(--coral-soft); color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.feature-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--navy); }
-.feature-card p { margin: 0; color: var(--ink-mute); font-size: 14.5px; line-height: 1.65; }
-.svc-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
-.svc-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; }
-.svc-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.svc-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--navy); }
-.svc-card p { margin: 0; color: var(--ink-mute); font-size: 14px; line-height: 1.6; }
+.mf-hero { background: var(--navy); color: var(--white); padding: 80px 0 72px; position: relative; overflow: hidden; }
+.mf-hero::before { content: ""; position: absolute; inset: 0; background: url('https://preferredp1dev.wpenginepowered.com/wp-content/uploads/2026/05/townhome-1.jpeg') center/cover; opacity: 0.18; }
+.mf-hero .container { position: relative; }
+.mf-hero .crumbs { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; font-weight: 600; }
+.mf-hero .crumbs a { color: var(--coral); }
+.mf-hero .crumbs .sep { opacity: 0.55; margin: 0 8px; }
+.mf-hero h1 { font-size: clamp(32px,4.4vw,56px); line-height: 1.05; font-weight: 700; margin: 0 0 20px; max-width: 18ch; text-wrap: balance; }
+.mf-hero h1 em { font-family: var(--f-italic); font-style: italic; color: var(--coral); font-weight: 500; }
+.mf-hero p.lede { font-size: clamp(16px,1.3vw,18px); color: rgba(255,255,255,0.82); max-width: 54ch; margin: 0 0 32px; line-height: 1.55; }
+.pillars { display: grid; grid-template-columns: 1fr; gap: 2px; background: var(--line); }
+@media (min-width: 768px) { .pillars { grid-template-columns: repeat(3,1fr); } }
+.pillar { background: var(--white); padding: 40px 32px; }
+.pillar-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red); margin-bottom: 14px; }
+.pillar h3 { font-size: clamp(22px,2.4vw,28px); font-weight: 700; color: var(--navy); margin: 0 0 20px; letter-spacing: -0.015em; }
+.pillar ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.pillar ul li { font-size: 14px; color: var(--ink-mute); line-height: 1.5; padding-left: 20px; position: relative; }
+.pillar ul li::before { content: '·'; position: absolute; left: 6px; color: var(--red); font-weight: 800; }
+.mf-feat-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 640px) { .mf-feat-grid { grid-template-columns: repeat(2,1fr); } }
+.mf-feat { background: var(--cream); border-radius: 12px; padding: 24px 22px; display: flex; gap: 14px; align-items: flex-start; }
+.mf-feat .fi { width: 40px; height: 40px; border-radius: 8px; background: var(--white); color: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mf-feat h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--navy); }
+.mf-feat p { margin: 0; font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; }
   </style>
 </head>
 <body>
 <div id="preferred-header-root"></div>
 <main>
-  <section class="page-hero">
+  <section class="mf-hero">
     <div class="container">
       <div class="crumbs"><a href="index.html">Home</a><span class="sep">·</span><a href="markets.html">Markets We Serve</a><span class="sep">·</span><span>Multi-Family</span></div>
-      <div class="page-hero-grid">
-        <div>
-          <h1>Multi-family &amp; apartment painting that <em>respects your residents.</em></h1>
-          <p class="lede">Apartment complexes, condominiums, and HOA-managed communities. We coordinate around resident schedules, navigate HOA approval processes, and deliver exterior repaints and unit turnovers that protect your property value.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
-            <a href="contact.html" class="btn btn-primary">Request a Quote</a>
-            <a href="maintenance.html" class="btn btn-outline-light">Maintenance Programs</a>
-          </div>
-        </div>
-        <div class="about-photos" style="aspect-ratio:16/9;"><img src="https://preferredp1dev.wpenginepowered.com/wp-content/uploads/2026/05/townhome-1.jpeg" alt="Multi-family exterior repaint"></div>
+      <h1>Multi-family &amp; apartment painting that <em>respects your residents.</em></h1>
+      <p class="lede">Apartment complexes, condominiums, and HOA-managed communities. We coordinate around resident schedules, navigate HOA approval processes, and protect your property value through every project.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+        <a href="maintenance.html" class="btn btn-outline-light">Maintenance Programs</a>
       </div>
     </div>
   </section>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-label">Exterior</div>
+      <h3>Curb appeal that retains &amp; attracts tenants</h3>
+      <ul>
+        <li>Full building repaints: siding, trim, fascia</li>
+        <li>Balconies, railings, and carports</li>
+        <li>Thorough surface prep and caulking included</li>
+        <li>HOA color approval coordination</li>
+        <li>Multi-year pricing locks available</li>
+      </ul>
+    </div>
+    <div class="pillar" style="border-top: 4px solid var(--red);">
+      <div class="pillar-label">Interior &amp; Common Areas</div>
+      <h3>Lobbies and corridors that feel like home</h3>
+      <ul>
+        <li>Lobbies, mailrooms, and fitness centers</li>
+        <li>Corridors and stairwells</li>
+        <li>Club rooms and leasing offices</li>
+        <li>Resident-sensitive scheduling</li>
+        <li>Color records maintained for exact touch-ups</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <div class="pillar-label">Unit Turnover</div>
+      <h3>Move-in ready, fast</h3>
+      <ul>
+        <li>Walls, ceilings, trim, and doors</li>
+        <li>Consistent quality unit after unit</li>
+        <li>Fast turnaround for leasing team</li>
+        <li>Standard color specs on file</li>
+        <li>Priority scheduling for contract clients</li>
+      </ul>
+    </div>
+  </div>
 
   <section class="block" style="background:var(--cream);">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Why Preferred Painting for multi-family</span><h2>Your residents live here. We treat it that way.</h2><p>Multi-family painting is different from commercial. Residents are home during the day, parking is complicated, and communication has to flow through building management, HOA boards, and individual tenants simultaneously. We've navigated all of it.</p></div>
-      <div class="feature-grid">
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div><h3>Resident-sensitive scheduling</h3><p>We work around resident parking, common area access, and peak activity hours. Clear advance notice protocols for any work affecting resident areas — coordinated through your property manager.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg></div><h3>HOA process experience</h3><p>We've worked with dozens of HOA boards across the Front Range. We understand approval timelines, color restriction processes, and the communication requirements that keep everyone aligned.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div><h3>Exterior repaint expertise</h3><p>Full building exterior repaints: siding, trim, fascia, balconies, railings, and carports. Comprehensive surface prep, caulking, and priming before any finish coat goes on.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>Fast unit turnover painting</h3><p>Vacant unit repaints turned around quickly — so your leasing team has a fresh, move-in-ready unit as fast as possible. We maintain your standard color specs and deliver consistent quality unit after unit.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg></div><h3>Multi-year maintenance programs</h3><p>Lock in pricing and scheduling for annual exterior touch-ups, common area repaints, and turnover painting across your portfolio. One relationship, one point of contact, consistent quality.</p></div>
-        <div class="feature-card"><div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><h3>Fixed-price quotes</h3><p>We walk every project and give fixed-price quotes. No surprise change orders — crucial when you're managing HOA budgets that were approved months in advance.</p></div>
+      <div class="section-head">
+        <span class="eyebrow">Why Preferred Painting for multi-family</span>
+        <h2>Your residents live here. We treat it that way.</h2>
+        <p>Multi-family painting is different from commercial. Residents are home during the day, parking is complicated, and communication must flow through management, HOA boards, and tenants simultaneously.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="container">
-      <div class="section-head"><span class="eyebrow">Services for multi-family communities</span><h2>From curb appeal to unit turnover</h2></div>
-      <div class="svc-grid">
-        <div class="svc-card"><h3>Exterior Repaint</h3><p>Full building exterior: siding, trim, fascia, soffits, balconies, railings, carports, and outbuildings — complete prep and two-coat finish systems.</p></div>
-        <div class="svc-card"><h3>Common Area Interiors</h3><p>Lobbies, corridors, mailrooms, fitness centers, club rooms, and leasing offices refreshed on your schedule.</p></div>
-        <div class="svc-card"><h3>Unit Turnover Painting</h3><p>Fast-turnaround unit repaints between tenants — walls, ceilings, trim, and doors. Consistent quality across every unit.</p></div>
-        <div class="svc-card"><h3>Commercial Flooring</h3><p>LVT, carpet tile, and VCT flooring for common areas and individual units — removal, supply, and full installation.</p></div>
-        <div class="svc-card"><h3>Maintenance Contracts</h3><p>Annual touch-up programs, scheduled walkthroughs, and priority emergency response for your entire community or portfolio.</p></div>
-        <div class="svc-card"><h3>Stained &amp; Polished Concrete</h3><p>Polished concrete floors for lobbies and leasing offices — a premium look that outperforms carpet over the life of the building.</p></div>
+      <div class="mf-feat-grid">
+        <div class="mf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h3>Resident-sensitive scheduling</h3><p>We work around resident parking, common area access, and peak activity hours — with clear advance notice for any work affecting resident areas.</p></div></div>
+        <div class="mf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><h3>HOA process experience</h3><p>We've worked with dozens of HOA boards across the Front Range. We understand approval timelines, color restrictions, and the communication requirements that keep everyone aligned.</p></div></div>
+        <div class="mf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h3>Fast unit turnover</h3><p>Vacant units turned fast — so your leasing team has a fresh, move-in-ready space as quickly as possible. We maintain your color specs on file for consistent results every time.</p></div></div>
+        <div class="mf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h3>Fixed-price quotes</h3><p>We walk every project and give fixed-price quotes. No surprise change orders — crucial when you're managing HOA budgets approved months in advance by a board.</p></div></div>
+        <div class="mf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div><h3>Multi-year maintenance programs</h3><p>Lock in pricing and scheduling for annual touch-ups, common area repaints, and unit turnover across your portfolio. One relationship, one contact, consistent quality.</p></div></div>
+        <div class="mf-feat"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3>No subcontracted labor</h3><p>Every person on your property is a Preferred Painting employee. No day-labor surprises, no strangers your residents haven't been introduced to.</p></div></div>
       </div>
     </div>
   </section>
